@@ -1,0 +1,7 @@
+#nav-tab-impression .nav-link{
+    opacity: .3;
+}
+
+#nav-tab-impression .active {
+    opacity: 1;
+}

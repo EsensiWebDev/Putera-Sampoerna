@@ -8,6 +8,7 @@
     <link rel="icon" type="image/webp" sizes="113x128" href="{{ asset("assets/img/Icon/Five%20Icon%20PSF.webp") }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset("assets/css/styles.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("assets/css/app.css") }}">
 </head>
 
 <body>

@@ -8,4 +8,5 @@
     <livewire:news.latest-update/>
     @include("components.impression")
     @include("components.contact-us")
+    @include("components.toolbox")
 </x-layouts.app>

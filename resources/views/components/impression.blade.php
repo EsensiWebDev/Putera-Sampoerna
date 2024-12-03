@@ -9,10 +9,10 @@
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <ul class="nav nav-tabs justify-content-center" role="tablist"
+                    <ul class="nav nav-tabs justify-content-center" id="nav-tab-impression" role="tablist"
                         style="border-style: none;margin-bottom: 40px;">
                         <li class="nav-item" role="presentation" style="border-style: none;"><a
-                                class="nav-link fs-5 link-danger" role="tab" data-bs-toggle="tab" href="#tab-1"
+                                class="nav-link active fs-5 link-danger" role="tab" data-bs-toggle="tab" href="#tab-1"
                                 style="border-style: none;border-radius: 0px;font-family: Campton;"><span><img
                                         src="{{ asset("assets/img/Icon/Students.png") }}" style="width: 24px;height: 24px;"></span>&nbsp;Students</a>
                         </li>
@@ -21,7 +21,7 @@
                                 style="border-style: none;border-radius: 0px;font-family: Campton;"><span><img
                                         src="{{ asset("assets/img/Icon/Teachers.png") }}" style="width: 24px;height: 24px;" width="24"
                                         height="24"></span>&nbsp;Teachers</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link active fs-5 link-danger" role="tab"
+                        <li class="nav-item" role="presentation"><a class="nav-link fs-5 link-danger" role="tab"
                                                                     data-bs-toggle="tab" href="#tab-3"
                                                                     style="border-style: none;border-radius: 0px;font-family: Campton;"><span><img
                                         src="{{ asset("assets/img/Icon/Partners.png") }}" style="width: 24px;height: 24px;"></span>&nbsp;Partners</a>
