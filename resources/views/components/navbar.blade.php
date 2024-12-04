@@ -54,7 +54,36 @@
             </div>
             <div class="ms-auto">
                 <ul class="navbar-nav d-md-flex d-lg-flex ms-auto justify-content-md-end justify-content-lg-end">
-                    <li class="nav-item" style="font-family: Campton;"><a class="nav-link fw-normal link-body-emphasis" href="#" style="color: var(--bs-white);font-family: Campton;"><img src="assets/img/Icon/circle-flags_us.png" style="width: 20px;" width="20px" height="20px" alt="USA Flag">&nbsp;English</a></li>
+                    <li class="nav-item dropdown" style="font-family: Campton;">
+                        <a class="nav-link fw-normal link-body-emphasis dropdown-toggle"
+                           href="#"
+                           id="languageDropdown"
+                           role="button"
+                           data-bs-toggle="dropdown"
+                           aria-expanded="false"
+                           style="color: var(--bs-white);font-family: Campton;">
+                            @php
+                                $currentLocale = app()->getLocale();
+                                $flagImage = $currentLocale == 'id' ? 'emojione_flag-for-indonesia.webp' : 'circle-flags_us.webp';
+                                $languageText = $currentLocale == 'id' ? 'Bahasa Indonesia' : 'English';
+                            @endphp
+                            <img src="{{ asset("assets/img/Icon/$flagImage") }}" width="26" height="20"
+                                 style="width: 20px;">&nbsp;{{ $languageText }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                            <li>
+                                <a class="dropdown-item" href="/language/en">
+                                    <img src="{{ asset("assets/img/Icon/circle-flags_us.webp") }}" width="26" height="20" style="width: 20px;">&nbsp;English
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/language/id">
+                                    <img src="{{ asset("assets/img/Icon/emojione_flag-for-indonesia.webp") }}" style="width: 20px;">&nbsp;Bahasa
+                                    Indonesia
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
