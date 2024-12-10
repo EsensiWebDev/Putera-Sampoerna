@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row" style="margin-bottom: 48px;">
             <div class="col-md-12">
-                <h1 class="fs-2 fw-semibold text-center" style="font-family: Campton;color: var(--bs-emphasis-color);">Instagram Content</h1>
+                <h1 class="fs-2 fw-semibold text-center" style="font-family: Campton;color: var(--bs-emphasis-color);">{{ __("Instagram Content") }}</h1>
             </div>
         </div>
         <div class="row">

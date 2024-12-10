@@ -16,7 +16,7 @@
 @include("components.navbar")
 
 {{ $slot }}
-
+@include("components.toolbox")
 {{-- Footer --}}
 @include("components.footer")
 

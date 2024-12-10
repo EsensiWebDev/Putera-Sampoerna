@@ -1,6 +1,6 @@
 <section>
     <section class="py-4 py-xl-5"
-             style="background: url(&quot;assets/img/Homepage/PSF%20Homepage%20Hero%20Image.webp&quot;) center / cover no-repeat;max-height: 1089px;min-height: 515px;height: 800px;">
+             style="background: url({{ asset("assets/img/Homepage/PSF%20Homepage%20Hero%20Image.webp") }}) center / cover no-repeat;max-height: 1089px;min-height: 515px;height: 800px;">
         <div class="container h-100">
             <div class="row h-100">
                 <div
@@ -8,11 +8,10 @@
                     style="padding-top: 100px;padding-bottom: 100px;">
                     <div>
                         <h1 class="display-4 text-uppercase fw-semibold text-light mb-3" style="font-family: Campton;">
-                            EDUCATION IS A FUNDAMENTAL RIGHT <br>FOR EVERY PERSON</h1>
-                        <p class="fs-4 fw-normal text-light mb-4" style="font-family: Campton;">Be part of our mission
-                            to make it a reality for all.</p><a
+                            {{ __("EDUCATION IS A FUNDAMENTAL RIGHT") }} <br>{{ __("FOR EVERY PERSON") }}</h1>
+                        <p class="fs-4 fw-normal text-light mb-4" style="font-family: Campton;">{{ __("Be part of our mission to make it a reality for all.") }}</p><a
                             class="btn btn-primary fs-5 fw-light py-2 px-4 me-lg-3 me-3" role="button"
-                            style="font-family: Campton;height: 48px;" href="/contact.html">Get Involved&nbsp;<svg
+                            style="font-family: Campton;height: 48px;" href="/contact.html">{{ __("Get Involved") }}&nbsp;<svg
                                 xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20"
                                 fill="none">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -20,7 +19,7 @@
                                       fill="currentColor"></path>
                             </svg>
                         </a><a class="btn btn-outline-light fs-5 fw-light py-2 px-4" role="button"
-                               style="font-family: Campton;" href="/aboutus.html">Learn More&nbsp;<svg
+                               style="font-family: Campton;" href="/aboutus.html">{{ __("Learn More") }}&nbsp;<svg
                                 xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20"
                                 fill="none">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
