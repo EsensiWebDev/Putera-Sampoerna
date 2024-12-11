@@ -16,6 +16,15 @@ Route::middleware([\App\Http\Middleware\SetLocale::class])->group(function () {
         Route::get('/', function () {
             return view('pages.home');
         });
+
+        Route::group(["prefix" => "/aboutus"], function () {
+            Route::get('/', function () {
+                return view('pages.aboutus');
+            })->name('aboutus');
+            Route::get("/ourjourney", function () {
+                return view("pages.ourjourney");
+            })->name("aboutus.ourjourney");
+        });
     });
 });
 

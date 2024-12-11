@@ -17,7 +17,7 @@
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item d-flex flex-row align-items-center align-items-lg-center align-items-xxl-center">
-                        <a class="nav-link fs-5 link-body-emphasis" href="/aboutus.html"
+                        <a class="nav-link fs-5 link-body-emphasis" href="{{ route("aboutus", ['locale' => app()->getLocale()]) }}"
                            style="font-family: Campton;padding-right: 0px;">{{ __("About Us") }}</a>
                         <div class="nav-item dropdown" style="font-family: Campton;"><a class="fs-5 link-body-emphasis"
                                                                                         aria-expanded="false"
@@ -34,7 +34,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-end"
                                  style="padding-left: 8px;padding-right: 8px;border-radius: 0px;"><a
-                                    class="dropdown-item fw-light" href="/aboutus/ourjourney.html">{{ __("Our Journey") }}</a>
+                                    class="dropdown-item fw-light" href="{{ route("aboutus.ourjourney", ['locale' => app()->getLocale()]) }}">{{ __("Our Journey") }}</a>
                                 <div class="dropdown-divider"
                                      style="border-width: 1px;border-color: rgb(0,0,0);margin-left: 14px;margin-right: 14px;"></div>
                                 <a class="dropdown-item fw-light" href="/aboutus/boardmembers.html">{{ __("Board Members") }}</a>
