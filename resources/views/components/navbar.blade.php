@@ -8,11 +8,11 @@
             <div class="ms-auto">
                 <ul class="navbar-nav d-md-flex d-lg-flex ms-auto justify-content-md-end justify-content-lg-end">
                     <li class="nav-item" style="font-family: Campton;"><a class="nav-link fw-normal link-body-emphasis"
-                                                                          href="/career.html"
+                                                                          href="{{ route("career", ['locale' => app()->getLocale()]) }}"
                                                                           style="color: var(--bs-white);font-family: Campton;">{{ __("Career") }}</a>
                     </li>
                     <li class="nav-item" style="font-family: Campton;"><a class="nav-link fw-normal link-body-emphasis"
-                                                                          href="/contact.html"
+                                                                          href="{{ route("contact-us", ['locale' => app()->getLocale()]) }}"
                                                                           style="color: var(--bs-white);font-family: Campton;">{{ __("Contact_us") }}</a></li>
                 </ul>
                 <ul class="navbar-nav ms-auto">

@@ -77,6 +77,14 @@ Route::middleware([\App\Http\Middleware\SetLocale::class])->group(function () {
                 return view('pages.annual-reports');
             })->name('media.annual-reports');
         });
+
+        Route::get('/career', function () {
+            return view('pages.career');
+        })->name('career');
+
+        Route::get('/contact-us', function () {
+            return view('pages.contact-us');
+        })->name('contact-us');
     });
 });
 
