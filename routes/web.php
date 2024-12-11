@@ -29,11 +29,16 @@ Route::middleware([\App\Http\Middleware\SetLocale::class])->group(function () {
             Route::get("/board-member", function () {
                 return view("pages.boardmember");
             })->name("aboutus.boardmember");
+        });
 
-            Route::get("/our-pillar", function () {
+        Route::group(["prefix" => "/ourpillar"], function () {
+            Route::get("/", function () {
                 return view("pages.ourpillar");
             })->name("ourpillar");
 
+            Route::get("/sampoerna-school-system", function () {
+                return view("pages.sampoerna-school-system");
+            })->name("ourpillar.sampoerna-school-system");
         });
     });
 });

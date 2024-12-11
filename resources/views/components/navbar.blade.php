@@ -59,7 +59,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-end"
                                  style="padding-top: 8px;padding-bottom: 8px;padding-left: 8px;padding-right: 8px;border-radius: 0px;">
-                                <a class="dropdown-item fw-light" href="/ourpillar/sampoernaschoolsystem.html">{{ __("Sampoerna School System") }}</a>
+                                <a class="dropdown-item fw-light" href={{ route("ourpillar.sampoerna-school-system", ['locale' => app()->getLocale()]) }}>{{ __("Sampoerna School System") }}</a>
                                 <div class="dropdown-divider"
                                      style="margin: 8px 14px;border-width: 1px;border-color: rgb(0,0,0);"></div>
                                 <a class="dropdown-item fw-light" href="/ourpillar/schooldevelopmentoutreach.html">{{ __("School Development Outreach") }}</a>
