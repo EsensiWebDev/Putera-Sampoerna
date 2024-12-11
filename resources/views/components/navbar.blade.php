@@ -62,15 +62,15 @@
                                 <a class="dropdown-item fw-light" href={{ route("ourpillar.sampoerna-school-system", ['locale' => app()->getLocale()]) }}>{{ __("Sampoerna School System") }}</a>
                                 <div class="dropdown-divider"
                                      style="margin: 8px 14px;border-width: 1px;border-color: rgb(0,0,0);"></div>
-                                <a class="dropdown-item fw-light" href="/ourpillar/schooldevelopmentoutreach.html">{{ __("School Development Outreach") }}</a>
+                                <a class="dropdown-item fw-light" href="{{ route("ourpillar.school-development", ['locale' => app()->getLocale()]) }}">{{ __("School Development Outreach") }}</a>
                                 <div class="dropdown-divider"
                                      style="margin: 8px 14px;border-width: 1px;border-color: rgb(0,0,0);"></div>
-                                <a class="dropdown-item fw-light" href="/ourpillar/scholarship.html">{{ __("Scholarship") }}</a>
+                                <a class="dropdown-item fw-light" href="{{ route("ourpillar.scholarship", ['locale' => app()->getLocale()]) }}">{{ __("Scholarship") }}</a>
                             </div>
                         </div>
                     </li>
                     <li class="nav-item d-flex flex-row align-items-center align-items-lg-center align-items-xxl-center">
-                        <a class="nav-link fs-5 link-body-emphasis" href="/partners.html"
+                        <a class="nav-link fs-5 link-body-emphasis" href="{{ route("partners", ['locale' => app()->getLocale()]) }}"
                            style="font-family: Campton;padding-right: 0px;">{{ __("Partners") }}</a>
                         <div class="nav-item dropdown" style="font-family: Campton;"><a class="fs-5 link-body-emphasis"
                                                                                         aria-expanded="false"
@@ -87,18 +87,18 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-end"
                                  style="padding-left: 8px;padding-right: 8px;border-radius: 0px;"><a
-                                    class="dropdown-item fw-light" href="/partners/govermentsectors.html">{{ __("Government Sectors") }}</a>
+                                    class="dropdown-item fw-light" href="{{ route("partners.government-sector", ['locale' => app()->getLocale()]) }}">{{ __("Government Sectors") }}</a>
                                 <div class="dropdown-divider"
                                      style="border-width: 1px;border-color: rgb(0,0,0);margin: 8px 14px;"></div>
-                                <a class="dropdown-item fw-light" href="/partners/privatesector.html">{{ __("Private Sector") }}</a>
+                                <a class="dropdown-item fw-light" href="{{ route("partners.private-sector", ['locale' => app()->getLocale()]) }}">{{ __("Private Sector") }}</a>
                                 <div class="dropdown-divider"
                                      style="border-width: 1px;border-color: rgb(0,0,0);margin: 8px 14px;"></div>
-                                <a class="dropdown-item fw-light" href="/partners/howtoinvolve.html">{{ __("How to Involve") }}</a>
+                                <a class="dropdown-item fw-light" href="{{ route("partners.how-to-involve", ['locale' => app()->getLocale()]) }}">{{ __("How to Involve") }}</a>
                             </div>
                         </div>
                     </li>
                     <li class="nav-item d-flex flex-row align-items-center align-items-lg-center align-items-xxl-center">
-                        <a class="nav-link fs-5 link-body-emphasis" href="/media.html"
+                        <a class="nav-link fs-5 link-body-emphasis" href="{{ route("media", ['locale' => app()->getLocale()]) }}"
                            style="font-family: Campton;padding-right: 0px;">{{ __("Media") }}</a>
                         <div class="nav-item dropdown" style="font-family: Campton;"><a class="fs-5 link-body-emphasis"
                                                                                         aria-expanded="false"
@@ -115,10 +115,10 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-end"
                                  style="padding-left: 8px;padding-right: 8px;border-radius: 0px;"><a
-                                    class="dropdown-item fw-light" href="/media/latestnews.html">{{ __("Latest News") }}</a>
+                                    class="dropdown-item fw-light" href="{{ route("media.news", ['locale' => app()->getLocale()]) }}">{{ __("Latest News") }}</a>
                                 <div class="dropdown-divider"
                                      style="margin: 8px 14px;border-width: 1px;border-color: rgb(0,0,0);"></div>
-                                <a class="dropdown-item fw-light" href="/media/annualreports.html">{{ __("Annual Reports") }}</a>
+                                <a class="dropdown-item fw-light" href="{{ route("media.annual-reports", ['locale' => app()->getLocale()]) }}">{{ __("Annual Reports") }}</a>
                             </div>
                         </div>
                     </li>

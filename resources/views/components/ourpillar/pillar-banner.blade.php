@@ -1,7 +1,7 @@
 <section style="margin-top: 200px;">
     <div class="container">
         <div class="row g-0 my-5 my-xxl-5">
-            <div class="col-md-4"><img class="img-fluid" src="{{ asset("assets/img/Our%20Pillar/Sampoerna%20School%20System%20(1).webp") }}" style="border-radius: 10px;"></div>
+            <div class="col-md-4"><img class="img-fluid" src="{{ asset("assets/img/Our%20Pillar/schoolsystem.webp") }}" style="border-radius: 10px;"></div>
             <div class="col d-flex d-lg-flex justify-content-center align-items-center align-items-lg-center" style="border-radius: 10px;background: #F2F2F5;">
                 <div class="d-md-flex flex-md-row">
                     <div class="col-md-4 d-lg-flex flex-md-fill justify-content-lg-center align-items-lg-center py-5 px-5"><img class="img-fluid" src="{{ asset("assets/img/Our%20Pillar/Sampoerna%20school%20logo.webp") }}"></div>
