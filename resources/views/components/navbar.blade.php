@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md fixed-top" style="padding-top: 24px;padding-bottom: 24px;" data-bs-theme="dark">
-    <div class="container"><a class="navbar-brand" href="/index.html"
+    <div class="container"><a class="navbar-brand" href="{{ route("home", ['locale' => app()->getLocale()])  }}"
                               style="background: url({{ asset("assets/img/Logo/PSF%20Logo.webp") }}) center / contain no-repeat;width: 228px;height: 93.82px;margin-right: 0px;padding-bottom: 0px;padding-top: 0px;"></a>
         <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"
                 style="border-style: none;border-radius: 0px;"><span
@@ -37,12 +37,12 @@
                                     class="dropdown-item fw-light" href="{{ route("aboutus.ourjourney", ['locale' => app()->getLocale()]) }}">{{ __("Our Journey") }}</a>
                                 <div class="dropdown-divider"
                                      style="border-width: 1px;border-color: rgb(0,0,0);margin-left: 14px;margin-right: 14px;"></div>
-                                <a class="dropdown-item fw-light" href="/aboutus/boardmembers.html">{{ __("Board Members") }}</a>
+                                <a class="dropdown-item fw-light" href="{{ route("aboutus.boardmember", ['locale' => app()->getLocale()]) }}">{{ __("Board Members") }}</a>
                             </div>
                         </div>
                     </li>
                     <li class="nav-item d-flex flex-row align-items-center align-items-lg-center align-items-xxl-center">
-                        <a class="nav-link fs-5 link-body-emphasis" href="/ourpillar.html"
+                        <a class="nav-link fs-5 link-body-emphasis" href="{{ route("ourpillar", ['locale' => app()->getLocale()]) }}"
                            style="font-family: Campton;padding-right: 0px;">{{ __("Our Pillar") }}</a>
                         <div class="nav-item dropdown" style="font-family: Campton;"><a class="fs-5 link-body-emphasis"
                                                                                         aria-expanded="false"

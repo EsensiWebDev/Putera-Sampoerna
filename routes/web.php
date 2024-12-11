@@ -15,15 +15,25 @@ Route::middleware([\App\Http\Middleware\SetLocale::class])->group(function () {
     Route::group(["prefix" => "{locale}"], function () {
         Route::get('/', function () {
             return view('pages.home');
-        });
+        })->name("home");
 
         Route::group(["prefix" => "/aboutus"], function () {
             Route::get('/', function () {
                 return view('pages.aboutus');
             })->name('aboutus');
-            Route::get("/ourjourney", function () {
+
+            Route::get("/our-journey", function () {
                 return view("pages.ourjourney");
             })->name("aboutus.ourjourney");
+
+            Route::get("/board-member", function () {
+                return view("pages.boardmember");
+            })->name("aboutus.boardmember");
+
+            Route::get("/our-pillar", function () {
+                return view("pages.ourpillar");
+            })->name("ourpillar");
+
         });
     });
 });
