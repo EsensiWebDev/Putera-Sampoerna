@@ -40,7 +40,7 @@
                                 }
                             @endphp
 
-                            <h1 style="font-family: Campton; color: var(--bs-white);">{!! $title !!}</h1>
+                            <h1 style="font-family: Campton; color: white !important;">{!! $title !!}</h1>
                         </div>
                     </div>
                 </div>
