@@ -85,6 +85,8 @@ Route::middleware([\App\Http\Middleware\SetLocale::class])->group(function () {
         Route::get('/contact-us', function () {
             return view('pages.contact-us');
         })->name('contact-us');
+
+        Route::get("/news/{slug}",\App\Livewire\DetailNews::class)->name("read-news");
     });
 });
 
