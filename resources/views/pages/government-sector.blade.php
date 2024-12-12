@@ -1,0 +1,9 @@
+<x-layouts.app>
+    @include("components.partnership.government-sector.hero-banner")
+    @include("components.partnership.government-sector.collab")
+    @include("components.partnership.government-sector.overview")
+    @include("components.partnership.government-sector.highlight")
+    @include("components.partnership.government-sector.quotes")
+    @include("components.partnership.government-sector.partners")
+    @include("components.contact-us")
+</x-layouts.app>
