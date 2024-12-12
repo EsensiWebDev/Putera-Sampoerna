@@ -88,6 +88,8 @@ Route::middleware([\App\Http\Middleware\SetLocale::class])->group(function () {
     });
 });
 
+Route::post("/contact", [\App\Http\Controllers\ContactController::class, "store"]);
+
 
 
 

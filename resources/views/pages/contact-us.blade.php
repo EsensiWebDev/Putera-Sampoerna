@@ -22,14 +22,22 @@
                 <div class="row d-flex justify-content-center">
                     <div class="col-12 col-md-8 col-lg-8 col-xl-7 col-xxl-7 offset-0 offset-xxl-0">
                         <div class="card mb-5">
-                            <form class="d-flex flex-column px-4 py-4" style="width: auto;">
+                            <form action="/contact" method="POST" class="d-flex flex-column px-4 py-4" style="width: auto;">
+                                @csrf
                                 <div class="py-3"><label class="form-label" style="font-family: Campton;">{{ __("Name") }}<span class="text-danger">*</span></label><input class="form-control" type="text"></div>
                                 <div class="d-flex flex-row">
                                     <div class="flex-fill py-3 pe-2"><label class="form-label" style="font-family: Campton;">{{ __("Phone Number") }}<span class="text-danger">*</span></label><input class="form-control" type="tel"></div>
                                     <div class="flex-fill py-3 ps-2"><label class="form-label" style="font-family: Campton;">Email<span class="text-danger">*</span></label><input class="form-control" type="email"></div>
                                 </div>
                                 <div class="py-3"><label class="form-label" style="font-family: Campton;">{{ __("Your Message") }}<span class="text-danger">*</span></label><textarea class="form-control" style="height: 184px;"></textarea></div>
-                                <div class="d-flex d-lg-flex justify-content-end justify-content-lg-end mt-4"><button class="btn btn-primary" type="button" style="width: 120px;">{{ __("Submit") }}</button></div>
+                                @if ($errors->has('g-recaptcha-response'))
+                                    <span class="help-block text-danger">
+                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                    </span>
+                                @endif
+                                {!! \Anhskohbo\NoCaptcha\Facades\NoCaptcha::renderJs() !!}
+                                {!! \Anhskohbo\NoCaptcha\Facades\NoCaptcha::display() !!}
+                                <div class="d-flex d-lg-flex justify-content-end justify-content-lg-end mt-4"><button class="btn btn-primary" type="submit" style="width: 120px;">{{ __("Submit") }}</button></div>
                             </form>
                         </div>
                     </div>
