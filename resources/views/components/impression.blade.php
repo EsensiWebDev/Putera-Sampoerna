@@ -33,10 +33,10 @@
                                 <div class="d-flex flex-row"
                                      style="padding-left: 10px;padding-right: 10px;padding-top: 10px;padding-bottom: 10px;">
                                     <div style="height: initial;"><img class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
-                                                                       style="width: 229px;"></div>
+                                                                       width="229" height="342"></div>
                                     <div><span style="margin-left: 30px;"><img class="img-fluid"
                                                                                src="{{ asset("assets/img/Tab/red%20stroke.png") }}"
-                                                                               style="width: 40px;"></span>
+                                                                               width="40" height="40"></span>
                                         <div style="margin-left: 30px;margin-bottom: 20px;">
                                             <h1 class="fs-5 fw-semibold"
                                                 style="font-family: Campton;color: var(--bs-black);margin-bottom: 12px;">
@@ -56,7 +56,7 @@
                                 <div class="d-flex flex-row"
                                      style="padding-left: 10px;padding-right: 10px;padding-top: 10px;padding-bottom: 10px;">
                                     <div style="height: initial;"><img class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
-                                                                       style="width: 229px;"></div>
+                                                                       width="229" height="342"></div>
                                     <div><span style="margin-left: 30px;"><img class="img-fluid"
                                                                                src=""
                                                                                {{ asset("assets/img/Tab/red%20stroke.png") }}                                                                         style="width: 40px;"></span>
@@ -83,10 +83,10 @@
                                 <div class="d-flex flex-row "
                                      style="padding-left: 10px;padding-right: 10px;padding-top: 10px;padding-bottom: 10px;">
                                     <div style="height: initial;"><img class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
-                                                                       style="width: 229px;"></div>
+                                                                       width="229" height="342"></div>
                                     <div><span style="margin-left: 30px;"><img class="img-fluid"
                                                                                src="{{ asset("assets/img/Tab/red%20stroke.png") }}"
-                                                                               style="width: 40px;"></span>
+                                                                               width="40" height="40"></span>
                                         <div style="margin-left: 30px;margin-bottom: 20px;">
                                             <h1 class="fs-5 fw-semibold"
                                                 style="font-family: Campton;color: var(--bs-black);margin-bottom: 12px;">
@@ -106,10 +106,10 @@
                                 <div class="d-flex flex-row"
                                      style="padding-left: 10px;padding-right: 10px;padding-top: 10px;padding-bottom: 10px;">
                                     <div style="height: initial;"><img class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
-                                                                       style="width: 229px;"></div>
+                                                                       width="229" height="342"></div>
                                     <div><span style="margin-left: 30px;"><img class="img-fluid"
                                                                                src="{{ asset("assets/img/Tab/red%20stroke.png") }}"
-                                                                               style="width: 40px;"></span>
+                                                                               width="40" height="40"></span>
                                         <div style="margin-left: 30px;margin-bottom: 20px;">
                                             <h1 class="fs-5 fw-semibold"
                                                 style="font-family: Campton;color: var(--bs-black);margin-bottom: 12px;">
@@ -132,7 +132,7 @@
                                 <div class="d-flex flex-row"
                                      style="padding-left: 10px;padding-right: 10px;padding-top: 10px;padding-bottom: 10px;">
                                     <div style="height: initial;"><img class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
-                                                                       style="width: 229px;"></div>
+                                                                       width="229" height="342"></div>
                                     <div><span style="margin-left: 30px;"><img class="img-fluid"
                                                                                src="{{ asset("assets/img/Tab/red%20stroke.png") }}"
                                                                                style="width: 40px;" width="40"
@@ -156,10 +156,10 @@
                                 <div class="d-flex flex-row"
                                      style="padding-left: 10px;padding-right: 10px;padding-top: 10px;padding-bottom: 10px;">
                                     <div style="height: initial;"><img class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
-                                                                       style="width: 229px;"></div>
+                                                                       width="229" height="342"></div>
                                     <div><span style="margin-left: 30px;"><img class="img-fluid"
                                                                                src="{{ asset("assets/img/Tab/red%20stroke.png") }}"
-                                                                               style="width: 40px;"></span>
+                                                                               width="40" height="40"></span>
                                         <div style="margin-left: 30px;margin-bottom: 20px;">
                                             <h1 class="fs-5 fw-semibold"
                                                 style="font-family: Campton;color: var(--bs-black);margin-bottom: 12px;">

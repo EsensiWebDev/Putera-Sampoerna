@@ -1,8 +1,9 @@
 <footer style="background: #7B070B;" class="py-5">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 my-0 py-3"><img class="img-fluid" src="{{ asset("assets/img/Logo/PSF%20Logo.webp") }}"
-                                                 style="width: 228px;">
+            <div class="col-md-4 my-0 py-3">
+                <img class="img-fluid" src="{{ asset("assets/img/Logo/PSF%20Logo.webp") }}"
+                                                 width="228" height="150">
                 <div class="d-flex flex-column mx-0 px-2 my-3"><a class="fw-light link-light" href="#"
                                                                   style="font-family: Campton;">{{ __("Privacy Policy") }}</a><a
                         class="fw-light link-light" href="#" style="font-family: Campton;">{{ __("Terms and Conditions") }}</a><a
