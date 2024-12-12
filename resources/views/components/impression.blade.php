@@ -14,16 +14,18 @@
                         <li class="nav-item" role="presentation" style="border-style: none;"><a
                                 class="nav-link active fs-5 link-danger" role="tab" data-bs-toggle="tab" href="#tab-1"
                                 style="border-style: none;border-radius: 0px;font-family: Campton;"><span><img
+                                        alt="studend"
                                         src="{{ asset("assets/img/Icon/Students.png") }}" style="width: 24px;height: 24px;"></span>&nbsp;{{ __("Students") }}</a>
                         </li>
                         <li class="nav-item" role="presentation" style="border-style: none;"><a
                                 class="nav-link fs-5 link-danger" role="tab" data-bs-toggle="tab" href="#tab-2"
                                 style="border-style: none;border-radius: 0px;font-family: Campton;"><span><img
+                                        alt="teacher"
                                         src="{{ asset("assets/img/Icon/Teachers.png") }}" style="width: 24px;height: 24px;" width="24"
                                         height="24"></span>&nbsp;{{ __("Teachers") }}</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link fs-5 link-danger" role="tab"
                                                                     data-bs-toggle="tab" href="#tab-3"
-                                                                    style="border-style: none;border-radius: 0px;font-family: Campton;"><span><img
+                                                                    style="border-style: none;border-radius: 0px;font-family: Campton;"><span><img alt="partner"
                                         src="{{ asset("assets/img/Icon/Partners.png") }}" style="width: 24px;height: 24px;"></span>&nbsp;{{ __("Partners") }}</a>
                         </li>
                     </ul>
@@ -32,9 +34,10 @@
                             <div class="d-flex flex-column flex-md-row justify-content-around">
                                 <div class="d-flex flex-row"
                                      style="padding-left: 10px;padding-right: 10px;padding-top: 10px;padding-bottom: 10px;">
-                                    <div style="height: initial;"><img class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
+                                    <div style="height: initial;"><img class="tab-img" alt="empty img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
                                                                        width="229" height="342"></div>
                                     <div><span style="margin-left: 30px;"><img class="img-fluid"
+                                                                               alt="stroke"
                                                                                src="{{ asset("assets/img/Tab/red%20stroke.png") }}"
                                                                                width="40" height="40"></span>
                                         <div style="margin-left: 30px;margin-bottom: 20px;">
@@ -55,9 +58,9 @@
                                 </div>
                                 <div class="d-flex flex-row"
                                      style="padding-left: 10px;padding-right: 10px;padding-top: 10px;padding-bottom: 10px;">
-                                    <div style="height: initial;"><img class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
+                                    <div style="height: initial;"><img class="tab-img" alt="black icon" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
                                                                        width="229" height="342"></div>
-                                    <div><span style="margin-left: 30px;"><img class="img-fluid"
+                                    <div><span style="margin-left: 30px;"><img alt="storek icon" class="img-fluid"
                                                                                src=""
                                                                                {{ asset("assets/img/Tab/red%20stroke.png") }}                                                                         style="width: 40px;"></span>
                                         <div style="margin-left: 30px;margin-bottom: 20px;">
@@ -82,9 +85,9 @@
                             <div class="d-flex flex-column flex-md-row justify-content-around">
                                 <div class="d-flex flex-row "
                                      style="padding-left: 10px;padding-right: 10px;padding-top: 10px;padding-bottom: 10px;">
-                                    <div style="height: initial;"><img class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
+                                    <div style="height: initial;"><img alt="black-icon" class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
                                                                        width="229" height="342"></div>
-                                    <div><span style="margin-left: 30px;"><img class="img-fluid"
+                                    <div><span style="margin-left: 30px;"><img alt="stroke-icon" class="img-fluid"
                                                                                src="{{ asset("assets/img/Tab/red%20stroke.png") }}"
                                                                                width="40" height="40"></span>
                                         <div style="margin-left: 30px;margin-bottom: 20px;">
@@ -105,9 +108,9 @@
                                 </div>
                                 <div class="d-flex flex-row"
                                      style="padding-left: 10px;padding-right: 10px;padding-top: 10px;padding-bottom: 10px;">
-                                    <div style="height: initial;"><img class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
+                                    <div style="height: initial;"><img alt="black-icon" class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
                                                                        width="229" height="342"></div>
-                                    <div><span style="margin-left: 30px;"><img class="img-fluid"
+                                    <div><span style="margin-left: 30px;"><img alt="stroke-icon" class="img-fluid"
                                                                                src="{{ asset("assets/img/Tab/red%20stroke.png") }}"
                                                                                width="40" height="40"></span>
                                         <div style="margin-left: 30px;margin-bottom: 20px;">
@@ -131,9 +134,9 @@
                             <div class="d-flex flex-column flex-md-row justify-content-between">
                                 <div class="d-flex flex-row"
                                      style="padding-left: 10px;padding-right: 10px;padding-top: 10px;padding-bottom: 10px;">
-                                    <div style="height: initial;"><img class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
+                                    <div style="height: initial;"><img alt="black image" class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
                                                                        width="229" height="342"></div>
-                                    <div><span style="margin-left: 30px;"><img class="img-fluid"
+                                    <div><span style="margin-left: 30px;"><img alt="stroke icon" class="img-fluid"
                                                                                src="{{ asset("assets/img/Tab/red%20stroke.png") }}"
                                                                                style="width: 40px;" width="40"
                                                                                height="31"></span>
@@ -155,9 +158,9 @@
                                 </div>
                                 <div class="d-flex flex-row"
                                      style="padding-left: 10px;padding-right: 10px;padding-top: 10px;padding-bottom: 10px;">
-                                    <div style="height: initial;"><img class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
+                                    <div style="height: initial;"><img alt="black image" class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
                                                                        width="229" height="342"></div>
-                                    <div><span style="margin-left: 30px;"><img class="img-fluid"
+                                    <div><span style="margin-left: 30px;"><img alt="stroke icon" class="img-fluid"
                                                                                src="{{ asset("assets/img/Tab/red%20stroke.png") }}"
                                                                                width="40" height="40"></span>
                                         <div style="margin-left: 30px;margin-bottom: 20px;">

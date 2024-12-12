@@ -150,13 +150,13 @@
                             <li>
                                 <a class="dropdown-item" href="/language/en">
                                     <img src="{{ asset("assets/img/Icon/circle-flags_us.webp") }}" width="26"
-                                         height="20" style="width: 20px;">&nbsp;English
+                                         height="20" alt="Bender inggriss" style="width: 20px;">&nbsp;English
                                 </a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="/language/id">
                                     <img src="{{ asset("assets/img/Icon/emojione_flag-for-indonesia.webp") }}"
-                                         style="width: 20px;">&nbsp;Bahasa
+                                         alt="Bendera indonesia" style="width: 20px;">&nbsp;Bahasa
                                     Indonesia
                                 </a>
                             </li>

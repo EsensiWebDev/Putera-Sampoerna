@@ -6,10 +6,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="col d-flex justify-content-center align-items-center col-6 col-sm-6 col-lg-3 py-2 px-2"><iframe src="https://cdn.bootstrapstudio.io/placeholders/instagram.html" allowtransparency="true" frameborder="0" scrolling="no" width="160" height="160"></iframe></div>
-            <div class="col d-flex justify-content-center align-items-center col-6 col-sm-6 col-lg-3 py-2 px-2"><iframe src="https://cdn.bootstrapstudio.io/placeholders/instagram.html" allowtransparency="true" frameborder="0" scrolling="no" width="160" height="160"></iframe></div>
-            <div class="col d-flex justify-content-center align-items-center col-6 col-sm-6 col-lg-3 py-2 px-2"><iframe src="https://cdn.bootstrapstudio.io/placeholders/instagram.html" allowtransparency="true" frameborder="0" scrolling="no" width="160" height="160"></iframe></div>
-            <div class="col d-flex justify-content-center align-items-center col-6 col-sm-6 col-lg-3 py-2 px-2"><iframe src="https://cdn.bootstrapstudio.io/placeholders/instagram.html" allowtransparency="true" frameborder="0" scrolling="no" width="160" height="160"></iframe></div>
+            <div class="col d-flex justify-content-center align-items-center col-6 col-sm-6 col-lg-3 py-2 px-2"><iframe title="Instagram content" src="https://cdn.bootstrapstudio.io/placeholders/instagram.html" allowtransparency="true" frameborder="0" scrolling="no" width="160" height="160"></iframe></div>
+            <div class="col d-flex justify-content-center align-items-center col-6 col-sm-6 col-lg-3 py-2 px-2"><iframe title="Instagram content" src="https://cdn.bootstrapstudio.io/placeholders/instagram.html" allowtransparency="true" frameborder="0" scrolling="no" width="160" height="160"></iframe></div>
+            <div class="col d-flex justify-content-center align-items-center col-6 col-sm-6 col-lg-3 py-2 px-2"><iframe title="Instagram content" src="https://cdn.bootstrapstudio.io/placeholders/instagram.html" allowtransparency="true" frameborder="0" scrolling="no" width="160" height="160"></iframe></div>
+            <div class="col d-flex justify-content-center align-items-center col-6 col-sm-6 col-lg-3 py-2 px-2"><iframe title="Instagram content" src="https://cdn.bootstrapstudio.io/placeholders/instagram.html" allowtransparency="true" frameborder="0" scrolling="no" width="160" height="160"></iframe></div>
         </div>
     </div>
 </section>
