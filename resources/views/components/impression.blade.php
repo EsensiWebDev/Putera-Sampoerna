@@ -29,10 +29,10 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane" role="tabpanel" id="tab-1">
-                            <div class="d-flex flex-row justify-content-around">
+                            <div class="d-flex flex-column flex-md-row justify-content-around">
                                 <div class="d-flex flex-row"
                                      style="padding-left: 10px;padding-right: 10px;padding-top: 10px;padding-bottom: 10px;">
-                                    <div style="height: initial;"><img src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
+                                    <div style="height: initial;"><img class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
                                                                        style="width: 229px;"></div>
                                     <div><span style="margin-left: 30px;"><img class="img-fluid"
                                                                                src="{{ asset("assets/img/Tab/red%20stroke.png") }}"
@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="d-flex flex-row"
                                      style="padding-left: 10px;padding-right: 10px;padding-top: 10px;padding-bottom: 10px;">
-                                    <div style="height: initial;"><img src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
+                                    <div style="height: initial;"><img class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
                                                                        style="width: 229px;"></div>
                                     <div><span style="margin-left: 30px;"><img class="img-fluid"
                                                                                src=""
@@ -79,10 +79,10 @@
                             </div>
                         </div>
                         <div class="tab-pane" role="tabpanel" id="tab-2">
-                            <div class="d-flex flex-row justify-content-around">
-                                <div class="d-flex flex-row"
+                            <div class="d-flex flex-column flex-md-row justify-content-around">
+                                <div class="d-flex flex-row "
                                      style="padding-left: 10px;padding-right: 10px;padding-top: 10px;padding-bottom: 10px;">
-                                    <div style="height: initial;"><img src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
+                                    <div style="height: initial;"><img class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
                                                                        style="width: 229px;"></div>
                                     <div><span style="margin-left: 30px;"><img class="img-fluid"
                                                                                src="{{ asset("assets/img/Tab/red%20stroke.png") }}"
@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="d-flex flex-row"
                                      style="padding-left: 10px;padding-right: 10px;padding-top: 10px;padding-bottom: 10px;">
-                                    <div style="height: initial;"><img src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
+                                    <div style="height: initial;"><img class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
                                                                        style="width: 229px;"></div>
                                     <div><span style="margin-left: 30px;"><img class="img-fluid"
                                                                                src="{{ asset("assets/img/Tab/red%20stroke.png") }}"
@@ -128,10 +128,10 @@
                             </div>
                         </div>
                         <div class="tab-pane active" role="tabpanel" id="tab-3">
-                            <div class="d-flex flex-row justify-content-between">
+                            <div class="d-flex flex-column flex-md-row justify-content-between">
                                 <div class="d-flex flex-row"
                                      style="padding-left: 10px;padding-right: 10px;padding-top: 10px;padding-bottom: 10px;">
-                                    <div style="height: initial;"><img src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
+                                    <div style="height: initial;"><img class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
                                                                        style="width: 229px;"></div>
                                     <div><span style="margin-left: 30px;"><img class="img-fluid"
                                                                                src="{{ asset("assets/img/Tab/red%20stroke.png") }}"
@@ -155,7 +155,7 @@
                                 </div>
                                 <div class="d-flex flex-row"
                                      style="padding-left: 10px;padding-right: 10px;padding-top: 10px;padding-bottom: 10px;">
-                                    <div style="height: initial;"><img src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
+                                    <div style="height: initial;"><img class="tab-img" src="{{ asset("assets/img/Tab/Image%20Black.jpg") }}"
                                                                        style="width: 229px;"></div>
                                     <div><span style="margin-left: 30px;"><img class="img-fluid"
                                                                                src="{{ asset("assets/img/Tab/red%20stroke.png") }}"
@@ -182,4 +182,14 @@
             </div>
         </div>
     </div>
+
+
+    <style>
+        @media (max-width: 767.98px) {
+            .tab-img {
+                width: 120px !important;
+                margin-right: 17px;
+            }
+        }
+    </style>
 </section>

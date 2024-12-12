@@ -6,11 +6,27 @@
             </div>
         </div>
         <div class="d-flex flex-column align-items-xxl-center">
-            <ul class="nav nav-tabs" role="tablist" style="border-style: none;">
-                <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-1" style="border-style: none;border-radius: 0px;">{{ __("Students") }}</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-2" style="border-style: none;border-radius: 0px;">{{ __("Teachers") }}</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-3" style="border-style: none;border-radius: 0px;">{{ __("Parents") }}</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-4" style="border-style: none;border-radius: 0px;">{{ __("Alumni") }}</a></li>
+            <ul class="nav nav-tabs justify-content-center" id="nav-tab-impression" role="tablist"
+                style="border-style: none;margin-bottom: 40px;">
+                <li class="nav-item" role="presentation" style="border-style: none;"><a
+                        class="nav-link active fs-5 link-danger" role="tab" data-bs-toggle="tab" href="#tab-1"
+                        style="border-style: none;border-radius: 0px;font-family: Campton;"><span><img
+                                src="{{ asset("assets/img/Icon/Students.png") }}" style="width: 24px;height: 24px;"></span>&nbsp;{{ __("Students") }}</a>
+                </li>
+                <li class="nav-item" role="presentation" style="border-style: none;"><a
+                        class="nav-link fs-5 link-danger" role="tab" data-bs-toggle="tab" href="#tab-2"
+                        style="border-style: none;border-radius: 0px;font-family: Campton;"><span><img
+                                src="{{ asset("assets/img/Icon/Teachers.png") }}" style="width: 24px;height: 24px;" width="24"
+                                height="24"></span>&nbsp;{{ __("Teachers") }}</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link fs-5 link-danger" role="tab"
+                                                            data-bs-toggle="tab" href="#tab-3"
+                                                            style="border-style: none;border-radius: 0px;font-family: Campton;"><span><img
+                                src="{{ asset("assets/img/Icon/Partners.png") }}" style="width: 24px;height: 24px;"></span>&nbsp;{{ __("Partners") }}</a>
+                </li>
+                <li class="nav-item" role="presentation"><a class="nav-link fs-5 link-danger" role="tab" data-bs-toggle="tab" href="#tab-4" style="border-style: none;border-radius: 0px;">
+                        <span><img
+                                src="{{ asset("assets/img/Icon/Mask group (8).webp") }}" style="width: 24px;height: 24px;"></span>
+                        {{ __("Alumni") }}</a></li>
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" role="tabpanel" id="tab-1">
@@ -53,7 +69,7 @@
                                 <div class="col-xxl-5" style="width: 229px;"><img class="img-fluid" src="{{ asset("assets/img/Our%20Pillar/Mr.%20Heize.webp") }}" width="229px" height="324px" alt="Jonah" style="height: 324px;"></div>
                                 <div class="col d-flex flex-column justify-content-center justify-content-sm-center justify-content-lg-center justify-content-xl-center justify-content-xxl-center px-xxl-0 px-0">
                                     <div class="px-2 px-xxl-4">
-                                        <div><span class="pe-0" style="padding-right: 0px;"><img width="58.16px" height="45.72px" src="{{ asset("assets/img/Our%20Pillar/“%20(Stroke).webp") }}" alt="stroke" class="me-0" style="padding-right: 0px;"></span>
+                                        <div><span class="pe-0" style="padding-right: 0px;"><img width="58.16px" height="45.72px" src="{{ asset("assets/img/Our%20Pillar/stroke.webp") }}" alt="stroke" class="me-0" style="padding-right: 0px;"></span>
                                             <h1 class="fs-5 mb-0 ps-0" style="font-family: Campton;color: #1C1C28;margin-top: -32px;padding-top: 14px;">{{ __("Math at Sampoerna Academy is unique") }}</h1>
                                         </div>
                                         <p class="my-2">{{ __("because it integrates STEAM approach into daily activities, providing students opportunities to apply mathematics concept to real-world projects.") }}</p>
@@ -67,7 +83,7 @@
                             <div class="d-flex flex-row">
                                 <div class="col-xxl-4" style="width: 229px;height: 324px;"><img class="img-fluid" src="{{ asset("assets/img/Our%20Pillar/Anak%20Agung%20Ngurah%20Perwira%20Redi.webp") }}" style="width: 229px;height: 324px;" width="229px" height="324px" alt="Matheo"></div>
                                 <div class="col d-flex flex-column justify-content-center justify-content-sm-center justify-content-lg-center justify-content-xl-center justify-content-xxl-center px-xxl-0 px-0">
-                                    <div class="px-2 px-xxl-4"><span class="pe-0" style="padding-right: 0px;"><img width="58.16px" height="45.72px" src="{{ asset("assets/img/Our%20Pillar/“%20(Stroke).webp") }}" alt="stroke" class="me-0" style="padding-right: 0px;"></span>
+                                    <div class="px-2 px-xxl-4"><span class="pe-0" style="padding-right: 0px;"><img width="58.16px" height="45.72px" src="{{ asset("assets/img/Our%20Pillar/stroke.webp") }}" alt="stroke" class="me-0" style="padding-right: 0px;"></span>
                                         <div>
                                             <h1 class="fs-5 mb-0" style="font-family: Campton;color: #1C1C28;margin-top: -14px;">{{ __("Our US-based curriculum enhances learning with innovative teaching methods and technology.") }}</h1>
                                         </div>
@@ -87,7 +103,7 @@
                                 <div class="col-xxl-5" style="width: 229px;"><img class="img-fluid" src="{{ asset("assets/img/Our%20Pillar/Melaney%20&%20Tyson.webp") }}" width="229px" height="324px" alt="Jonah" style="height: 324px;"></div>
                                 <div class="col d-flex flex-column justify-content-center justify-content-sm-center justify-content-lg-center justify-content-xl-center justify-content-xxl-center px-xxl-0 px-0">
                                     <div class="px-2 px-xxl-4">
-                                        <div><span class="pe-0" style="padding-right: 0px;"><img width="58.16px" height="45.72px" src="{{ asset("assets/img/Our%20Pillar/“%20(Stroke).webp") }}" alt="stroke" class="me-0" style="padding-right: 0px;"></span>
+                                        <div><span class="pe-0" style="padding-right: 0px;"><img width="58.16px" height="45.72px" src="{{ asset("assets/img/Our%20Pillar/stroke.webp") }}" alt="stroke" class="me-0" style="padding-right: 0px;"></span>
                                             <h1 class="fs-5 mb-0 ps-0" style="font-family: Campton;color: #1C1C28;margin-top: -32px;padding-top: 14px;">{{ __("We chose Sampoerna Academy because of strong recommendations from friends, and we're pleased with Chloe's progress.") }}</h1>
                                         </div>
                                         <p class="my-2">{{ __("Chloe's understanding of all subjects has improved, and we're very happy about that. We don't push her too hard; as long as she's doing her best, that's what matters to us. We're also glad she's more eager to speak English.") }}</p>
@@ -101,7 +117,7 @@
                             <div class="d-flex flex-row">
                                 <div class="col-xxl-4" style="width: 229px;height: 324px;"><img class="img-fluid" src="{{ asset("assets/img/Our%20Pillar/Budi%20Hartanto.webp") }}" style="width: 229px;height: 324px;" width="229px" height="324px" alt="Matheo"></div>
                                 <div class="col d-flex flex-column justify-content-center justify-content-sm-center justify-content-lg-center justify-content-xl-center justify-content-xxl-center px-xxl-0 px-0">
-                                    <div class="px-2 px-xxl-4"><span class="pe-0" style="padding-right: 0px;"><img width="58.16px" height="45.72px" src="{{ asset("assets/img/Our%20Pillar/“%20(Stroke).webp") }}" alt="stroke" class="me-0" style="padding-right: 0px;"></span>
+                                    <div class="px-2 px-xxl-4"><span class="pe-0" style="padding-right: 0px;"><img width="58.16px" height="45.72px" src="{{ asset("assets/img/Our%20Pillar/stroke.webp") }}" alt="stroke" class="me-0" style="padding-right: 0px;"></span>
                                         <div>
                                             <h1 class="fs-5 mb-0" style="font-family: Campton;color: #1C1C28;margin-top: -14px;">{{ __("I see that the program from") }}<br>{{ __("Sampoerna University is quite great") }}</h1>
                                         </div>
@@ -121,7 +137,7 @@
                                 <div class="col-xxl-5" style="width: 229px;"><img class="img-fluid" src="{{ asset("assets/img/Our%20Pillar/Puti%20Yasmina.webp") }}" width="229px" height="324px" alt="Jonah" style="height: 324px;"></div>
                                 <div class="col d-flex flex-column justify-content-center justify-content-sm-center justify-content-lg-center justify-content-xl-center justify-content-xxl-center px-xxl-0 px-0">
                                     <div class="px-2 px-xxl-4">
-                                        <div><span class="pe-0" style="padding-right: 0px;"><img width="58.16px" height="45.72px" src="{{ asset("assets/img/Our%20Pillar/“%20(Stroke).webp") }}" alt="stroke" class="me-0" style="padding-right: 0px;"></span>
+                                        <div><span class="pe-0" style="padding-right: 0px;"><img width="58.16px" height="45.72px" src="{{ asset("assets/img/Our%20Pillar/stroke.webp") }}" alt="stroke" class="me-0" style="padding-right: 0px;"></span>
                                             <h1 class="fs-5 mb-0 ps-0" style="font-family: Campton;color: #1C1C28;margin-top: -32px;padding-top: 14px;">{{ __("The bond between teachers") }}<br>{{ __("and students feels more like family") }}</h1>
                                         </div>
                                         <p class="my-2">{{ __("than a typical student-teacher relationship,") }}<br>{{ __("with everyone caring for each other.") }}</p>
@@ -135,7 +151,7 @@
                             <div class="d-flex flex-row">
                                 <div class="col-xxl-4" style="width: 229px;height: 324px;"><img class="img-fluid" src="{{ asset("assets/img/Our%20Pillar/Jauharul.webp") }}" style="width: 229px;height: 324px;" width="229px" height="324px" alt="Matheo"></div>
                                 <div class="col d-flex flex-column justify-content-center justify-content-sm-center justify-content-lg-center justify-content-xl-center justify-content-xxl-center px-xxl-0 px-0">
-                                    <div class="px-2 px-xxl-4"><span class="pe-0" style="padding-right: 0px;"><img width="58.16px" height="45.72px" src="{{ asset("assets/img/Our%20Pillar/“%20(Stroke).webp") }}" alt="stroke" class="me-0" style="padding-right: 0px;"></span>
+                                    <div class="px-2 px-xxl-4"><span class="pe-0" style="padding-right: 0px;"><img width="58.16px" height="45.72px" src="{{ asset("assets/img/Our%20Pillar/stroke.webp") }}" alt="stroke" class="me-0" style="padding-right: 0px;"></span>
                                         <div>
                                             <h1 class="fs-5 mb-0" style="font-family: Campton;color: #1C1C28;margin-top: -14px;">{{ __("I chose Sampoerna University because") }}<br>{{ __("it offers a US-based curriculum") }}</h1>
                                         </div>

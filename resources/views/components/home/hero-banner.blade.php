@@ -11,7 +11,7 @@
                             {{ __("EDUCATION IS A FUNDAMENTAL RIGHT") }} <br>{{ __("FOR EVERY PERSON") }}</h1>
                         <p class="fs-4 fw-normal text-light mb-4" style="font-family: Campton;">{{ __("Be part of our mission to make it a reality for all.") }}</p><a
                             class="btn btn-primary fs-5 fw-light py-2 px-4 me-lg-3 me-3" role="button"
-                            style="font-family: Campton;height: 48px;" href="/contact.html">{{ __("Get Involved") }}&nbsp;<svg
+                            style="font-family: Campton;height: 48px;" href="{{ route("contact-us", ['locale' => app()->getLocale()]) }}">{{ __("Get Involved") }}&nbsp;<svg
                                 xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20"
                                 fill="none">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -19,7 +19,7 @@
                                       fill="currentColor"></path>
                             </svg>
                         </a><a class="btn btn-outline-light fs-5 fw-light py-2 px-4" role="button"
-                               style="font-family: Campton;" href="/aboutus.html">{{ __("Learn More") }}&nbsp;<svg
+                               style="font-family: Campton;" href="{{ route("aboutus", ['locale' => app()->getLocale()]) }}">{{ __("Learn More") }}&nbsp;<svg
                                 xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20"
                                 fill="none">
                                 <path fill-rule="evenodd" clip-rule="evenodd"

@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset("assets/css/styles.min.css") }}">
     <link rel="stylesheet" href="{{ asset("assets/css/app.css") }}">
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    @yield("style")
 </head>
 
 <body>
@@ -20,8 +22,8 @@
 {{-- Footer --}}
 @include("components.footer")
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{{ asset("assets/js/script.min.js") }}"></script>
+@yield("script")
 </body>
 </html>

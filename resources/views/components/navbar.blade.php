@@ -13,7 +13,7 @@
                     </li>
                     <li class="nav-item" style="font-family: Campton;"><a class="nav-link fw-normal link-body-emphasis"
                                                                           href="{{ route("contact-us", ['locale' => app()->getLocale()]) }}"
-                                                                          style="color: var(--bs-white);font-family: Campton;">{{ __("Contact_us") }}</a></li>
+                                                                          style="color: var(--bs-white);font-family: Campton;">{{ __("Contact us") }}</a></li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item d-flex flex-row align-items-center align-items-lg-center align-items-xxl-center">

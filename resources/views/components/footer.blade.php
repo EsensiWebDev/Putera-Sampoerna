@@ -6,7 +6,7 @@
                 <div class="d-flex flex-column mx-0 px-2 my-3"><a class="fw-light link-light" href="#"
                                                                   style="font-family: Campton;">{{ __("Privacy Policy") }}</a><a
                         class="fw-light link-light" href="#" style="font-family: Campton;">{{ __("Terms and Conditions") }}</a><a
-                        class="fw-light link-light" href="/career.html" style="font-family: Campton;">{{ __("Career") }}</a></div>
+                        class="fw-light link-light" href="{{ route("career", ['locale' => app()->getLocale()]) }}" style="font-family: Campton;">{{ __("Career") }}</a></div>
                 <div class="d-flex flex-row mx-0 px-2"><a class="fw-light link-light me-2"
                                                           href="https://www.instagram.com/puterasampoernafoundation/"
                                                           style="font-family: Campton;"><img
@@ -26,20 +26,20 @@
                     <div class="py-2" style="height: 252px;">
                         <h1 class="fs-5 mb-3" style="font-family: Campton;color: var(--bs-light);">{{ __("ABOUT US") }}</h1>
                         <div class="d-flex flex-column mb-0"><a class="fs-6 fw-light link-light mb-2"
-                                                                href="/aboutus.html" style="font-family: Campton;">{{ __("Putera Sampoerna Foundation") }}</a><a class="fs-6 fw-light link-light mb-2"
-                                                           href="/aboutus/ourjourney.html"
+                                                                href="{{ route("aboutus", ['locale' => app()->getLocale()]) }}" style="font-family: Campton;">{{ __("Putera Sampoerna Foundation") }}</a><a class="fs-6 fw-light link-light mb-2"
+                                                           href="{{ route("aboutus.ourjourney", ['locale' => app()->getLocale()]) }}"
                                                            style="font-family: Campton;">{{ __("Our Journey") }}</a><a
-                                class="fs-6 fw-light link-light mb-2" href="/aboutus/boardmembers.html"
+                                class="fs-6 fw-light link-light mb-2" href="{{ route("aboutus.boardmember", ['locale' => app()->getLocale()]) }}"
                                 style="font-family: Campton;">{{ __("Board Members") }}</a><a class="fs-6 fw-light link-light mb-2"
-                                                                                  href="/contact.html"
+                                                                                  href="{{ route("contact-us", ['locale' => app()->getLocale()]) }}"
                                                                                   style="font-family: Campton;">{{ __("Contact Us") }}</a></div>
                     </div>
                     <div class="py-2">
                         <h1 class="fs-5 mb-3" style="font-family: Campton;color: var(--bs-light);">{{ __("MEDIA") }}</h1>
                         <div class="d-flex flex-column mb-0"><a class="fs-6 fw-light link-light mb-2"
-                                                                href="/media/latestnews.html"
+                                                                href="{{ route("media.news", ['locale' => app()->getLocale()]) }}"
                                                                 style="font-family: Campton;">{{ __("Latest News") }}</a><a
-                                class="fs-6 fw-light link-light mb-2" href="/media/annualreports.html"
+                                class="fs-6 fw-light link-light mb-2" href="{{ route("media.annual-reports", ['locale' => app()->getLocale()]) }}"
                                 style="font-family: Campton;">{{ __("Annual Report") }}</a></div>
                     </div>
                 </div>
@@ -49,21 +49,21 @@
                     <div class="py-2" style="height: 252px;">
                         <h1 class="fs-5 mb-3" style="font-family: Campton;color: var(--bs-light);">{{ __("PARTNER") }}</h1>
                         <div class="d-flex flex-column mb-0"><a class="fs-6 fw-light link-light mb-2"
-                                                                href="/partners/govermentsectors.html"
+                                                                href="{{ route("partners.government-sector", ['locale' => app()->getLocale()]) }}"
                                                                 style="font-family: Campton;">{{ __("Government Sector") }}</a><a
-                                class="fs-6 fw-light link-light mb-2" href="/partners/privatesector.html"
+                                class="fs-6 fw-light link-light mb-2" href="{{ route("partners.private-sector", ['locale' => app()->getLocale()]) }}"
                                 style="font-family: Campton;">{{ __("Private Sector") }}</a><a class="fs-6 fw-light link-light mb-2"
-                                                                                   href="/partners/howtoinvolve.html"
+                                                                                   href="{{ route("partners.how-to-involve", ['locale' => app()->getLocale()]) }}"
                                                                                    style="font-family: Campton;">{{ __("How to Involve") }}</a></div>
                     </div>
                     <div class="py-2">
                         <h1 class="fs-5 mb-3" style="font-family: Campton;color: var(--bs-light);">{{ __("OUR PILLAR") }}</h1>
                         <div class="d-flex flex-column mb-0"><a class="fs-6 fw-light link-light mb-2"
-                                                                href="/ourpillar/sampoernaschoolsystem.html"
+                                                                href="{{ route("ourpillar.sampoerna-school-system", ['locale' => app()->getLocale()]) }}"
                                                                 style="font-family: Campton;">{{ __("Sampoerna School System") }}</a><a class="fs-6 fw-light link-light mb-2"
-                                             href="/ourpillar/schooldevelopmentoutreach.html"
+                                             href="{{ route("ourpillar.school-development", ['locale' => app()->getLocale()]) }}"
                                              style="font-family: Campton;">{{ __("School Development Outreach") }}</a><a
-                                class="fs-6 fw-light link-light mb-2" href="/ourpillar/scholarship.html"
+                                class="fs-6 fw-light link-light mb-2" href="{{ route("ourpillar.scholarship", ['locale' => app()->getLocale()]) }}"
                                 style="font-family: Campton;">{{ __("Scholarship") }}</a></div>
                     </div>
                 </div>
