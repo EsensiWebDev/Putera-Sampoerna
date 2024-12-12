@@ -10,7 +10,8 @@
         <div class="row">
             @php
                 $article = \App\Models\Article::orderBy("created_at", "DESC")->first();
-                 $locale = app()->getLocale();
+                if(isset($article)) {
+                 $locale =  app()->getLocale();
                                         $title =
                                             $locale == 'id'
                                                 ? $article->title_indonesia ?? $article->title_english
@@ -35,6 +36,8 @@
                                                     100,
                                                     '...',
                                                 );
+
+                                        }
             @endphp
             @if(isset($article))
                 <div class="col-md-6 px-0 py-0">

@@ -91,7 +91,11 @@ Route::middleware([\App\Http\Middleware\SetLocale::class])->group(function () {
 });
 
 Route::post("/contact", [\App\Http\Controllers\ContactController::class, "store"]);
-
+Route::get("/adm/optimize", function () {
+    \Illuminate\Support\Facades\Artisan::call("migrate");
+    \Illuminate\Support\Facades\Artisan::call("optimize:clear");
+    \Illuminate\Support\Facades\Artisan::call("optimize");
+});
 
 
 

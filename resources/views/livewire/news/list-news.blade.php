@@ -1,6 +1,7 @@
 <section>
     @php
         $article = \App\Models\Article::orderBy("created_at", "DESC")->first();
+        if(isset($article)) {
          $locale = app()->getLocale();
                                         $title =
                                             $locale == 'id'
@@ -26,6 +27,7 @@
                                                     100,
                                                     '...',
                                                 );
+                                        }
     @endphp
 
     <section style="margin-top: 200px;">
