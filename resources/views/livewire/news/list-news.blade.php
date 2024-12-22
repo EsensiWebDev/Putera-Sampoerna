@@ -41,7 +41,7 @@
                             <p class="fw-light"
                                style="font-family: Campton;color: var(--bs-black);margin-top: 10px;">{!! $content !!}
                                 &nbsp;</p>
-                            <a href="{{ route("read-news", ['locale' => app()->getLocale(), $article->slugs]) }}"
+                            <a href="{{ route("read-news", ['locale' => app()->getLocale(), $article->slug]) }}"
                                style="font-family: Campton;color: #292F78;">{{ __("Read More") }}&nbsp;<svg
                                     xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20"
                                     fill="none">
@@ -89,7 +89,7 @@
                                                         '...',
                                                     );
                         @endphp
-                        <div class="col col-6 col-sm-6 col-lg-4 py-2 px-2"><a href="/media/news/{{ $article->slugs }}">
+                        <div class="col col-6 col-sm-6 col-lg-4 py-2 px-2"><a href="/media/news/{{ $article->slug }}">
                                 <div><img class="img-fluid" style="margin-bottom: 36px;"
                                           src="{{ asset("/storage/$article->thumbnail") }}" width="424px" height="290px"
                                           alt="Media Image"></div>
