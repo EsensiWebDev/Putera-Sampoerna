@@ -112,8 +112,14 @@
                     <h1>This does not have the latest update</h1>
                 @endif
             </div>
-            @if(isset($articles))
-                {{ $articles->links(data: ['scrollTo' => false]) }}
+            @if ($articles->hasPages())
+                <div class="row justify-content-center" style="margin-top: 100px">
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="pagination-container">
+                            {{ $articles->onEachSide(0)->links('pagination::bootstrap-4') }}
+                        </div>
+                    </div>
+                </div>
             @endif
         </div>
     </section>
