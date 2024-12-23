@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->string('slugs', 255)->nullable(false)->unique();
+            $table->string('slug', 255)->nullable(false)->unique();
             $table->string('title_indonesia', 255)->nullable(false);
             $table->string('title_english', 255)->nullable(false);
             $table->longText('content_indonesia')->nullable();

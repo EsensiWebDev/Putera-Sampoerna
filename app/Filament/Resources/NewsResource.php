@@ -24,11 +24,11 @@ class NewsResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('slugs')
+                Forms\Components\TextInput::make('slug')
                     ->required()
                     ->minLength(5)
                     ->maxLength(255)
-                    ->unique('articles', 'slugs'),
+                    ->unique('articles', 'slug'),
                 Forms\Components\TextInput::make('title_indonesia')
                     ->required()
                     ->minLength(5)
@@ -55,7 +55,7 @@ class NewsResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('slugs'),
+                Tables\Columns\TextColumn::make('slug'),
                 Tables\Columns\TextColumn::make('title_indonesia'),
             ])
             ->filters([

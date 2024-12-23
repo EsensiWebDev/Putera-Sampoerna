@@ -35,7 +35,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="d-flex flex-row justify-content-start align-items-end"
-                         style="background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 100%), url({{ asset("storage/{$article->thumbnail}") }}) center / cover no-repeat;height: 676px;">
+                         style="background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 100%), url({{ asset("{$article->thumbnail}") }}) center / cover no-repeat;height: 676px;">
                         <div class="flex-fill px-5" style="padding-left: 140px;padding-bottom: 36px;">
                             <h1 class="fs-4" style="font-family: Campton;color: var(--bs-black);">{{ $title }}</h1>
                             <p class="fw-light"
@@ -91,7 +91,7 @@
                         @endphp
                         <div class="col col-6 col-sm-6 col-lg-4 py-2 px-2"><a href="/media/news/{{ $article->slug }}">
                                 <div><img class="img-fluid" style="margin-bottom: 36px;"
-                                          src="{{ asset("/storage/$article->thumbnail") }}" width="424px" height="290px"
+                                          src="{{ asset("$article->thumbnail") }}" width="424px" height="290px"
                                           alt="Media Image"></div>
                             @php
                                 $createdAt = \Carbon\Carbon::parse($article->created_at);

@@ -8,7 +8,7 @@
             <div class="d-flex align-items-end"
                  style="height: 600px;
         background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%),
-        url('{{ asset("storage/$article->thumbnail") }}') center / cover no-repeat,
+        url('{{ asset("$article->thumbnail") }}') center / cover no-repeat,
         linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);">
 
                 <div class="container" style="padding-bottom: 64px;">
@@ -61,10 +61,10 @@
                 <div class="slick-slider d-flex flex-row" style="margin-bottom: 72px;">
                     @if(isset($articles) && $articles->count() > 0)
                         @foreach($articles as $article)
-                            <a href="{{ route("read-news", ['locale' => app()->getLocale(), $article->slugs]) }}" style="color: black;">
+                            <a href="{{ route("read-news", ['locale' => app()->getLocale(), $article->slug]) }}" style="color: black;">
                                 <div class="slick-item" wire:key="{{ $loop->iteration }}">
                                     <div>
-                                        <img class="img-fluid" style="margin-bottom: 36px; height: 334px;" src="{{ asset("storage/$article->thumbnail") }}" alt="Article Thumbnail">
+                                        <img class="img-fluid" style="margin-bottom: 36px; height: 334px;" src="{{ asset("$article->thumbnail") }}" alt="Article Thumbnail">
                                     </div>
                                     <p class="fw-light" style="font-family: Campton; color: #8F90A6;">
                                         {{ \Carbon\Carbon::parse($article->created_at)->format("F j, Y") }}

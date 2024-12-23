@@ -43,7 +43,7 @@
                 <div class="col-md-6 px-0 py-0">
                     <div class="card py-3" style="border-radius: 0px;border-style: none;"><img
                             class="img-fluid card-img w-100 d-block" style="border-radius: 0px;"
-                            src="{{ asset("storage/$article->thumbnail") }}" width="749px" height="646px"
+                            src="{{ asset("$article->thumbnail") }}" width="749px" height="646px"
                             alt="Beasiswa">
                         <div class="card-img-overlay d-flex flex-column justify-content-end justify-content-lg-end justify-content-xxl-end py-5">
                             <h4 class="text-light" style="font-family: Campton;">
@@ -94,7 +94,7 @@
                         @endphp
                         <div class="d-flex flex-row py-2 px-3 pb-3">
                     <div class="col">
-                        <div style="background: url({{ asset("storage/$article->thumbnail") }}) center / cover no-repeat;height: 232px;"></div>
+                        <div style="background: url({{ asset("$article->thumbnail") }}) center / cover no-repeat;height: 232px;"></div>
                     </div>
                             <div class="col d-flex flex-column justify-content-xxl-center px-3">
                                 <h1 class="fs-5" style="color: var(--bs-black); font-family: Campton; margin-bottom: 0;">
