@@ -49,7 +49,7 @@
                             <h4 class="text-light" style="font-family: Campton;">
                                 {!! $title !!}
                             </h4>
-                            <p class="text-light" style="font-family: Campton;">{{ $content }}</p><a class="link-light" href="/media/news/{{ $article->slugs }}" style="font-family: Campton;">{{ __("Read
+                            <p class="text-light" style="font-family: Campton;">{{ $content }}</p><a class="link-light" href="/media/news/{{ $article->slug }}" style="font-family: Campton;">{{ __("Read
                                 More") }}&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
                                                viewBox="0 0 20 20" fill="none">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -103,7 +103,7 @@
                                 <p class="fs-6 fw-light my-2" style="font-family: Campton; color: var(--bs-black); margin-bottom: -1px;">
                                     {!! $content !!}
                                 </p>
-                                <a class="fs-6" href="/media/news/{{ $article->slugs }}" style="color: #292F78; font-family: Campton;">
+                                <a class="fs-6" href="/media/news/{{ $article->slug }}" style="color: #292F78; font-family: Campton;">
                                     {{ __("Read More") }}&nbsp;
                                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" fill="none">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
