@@ -12,13 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('articles', function (Blueprint $table) {
-            $table->id();
-            $table->string('slug', 255)->nullable(false)->unique();
-            $table->string('title_indonesia', 255)->nullable(false);
-            $table->string('title_english', 255)->nullable(false);
+            $table->id('id')->primary();
+            $table->string('slug');
+            $table->string('title_indonesia')->nullable();
+            $table->string('title_english')->nullable();
             $table->longText('content_indonesia')->nullable();
             $table->longText('content_english')->nullable();
-            $table->string('thumbnail', 255)->nullable(false);
+            $table->string('thumbnail', 2083)->nullable();
+            $table->string('lang');
+            $table->boolean('isPublished');
+            $table->string('link')->unique(); // Cegah duplikasi berdasarkan link
             $table->timestamps();
         });
     }

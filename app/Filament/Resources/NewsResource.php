@@ -28,7 +28,7 @@ class NewsResource extends Resource
                     ->required()
                     ->minLength(5)
                     ->maxLength(255)
-                    ->unique('articles', 'slug'),
+                    ->unique('articles', 'slug', ignoreRecord: true),
                 Forms\Components\TextInput::make('title_indonesia')
                     ->required()
                     ->minLength(5)
@@ -41,13 +41,24 @@ class NewsResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('thumbnail')
                     ->image()
-                    ->imageEditor()
-                    ->columnSpan(4)
-                    ->required(),
+                    ->disk('public')
+                    ->directory('images')
+                    ->columnSpanFull()
+                    ->preserveFilenames()
+                    ->label('Thumbnail'),
                 Forms\Components\RichEditor::make('content_indonesia')
                     ->columnSpan(4),
                 Forms\Components\RichEditor::make('content_english')
                     ->columnSpan(4),
+                Forms\Components\Hidden::make('lang')
+                    ->default('id') // Set the default value
+                    ->columnSpanFull(),
+                Forms\Components\Hidden::make('isPublished')
+                    ->default(true) // Set the default value
+                    ->columnSpanFull(),
+                Forms\Components\Hidden::make('link') // Add the hidden link field
+                    ->default(fn($get) => url('/news/' . $get('slug'))) // Dynamically create the URL using the slug field
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -57,6 +68,7 @@ class NewsResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('slug'),
                 Tables\Columns\TextColumn::make('title_indonesia'),
+                Tables\Columns\TextColumn::make('title_english'),
             ])
             ->filters([
                 //
