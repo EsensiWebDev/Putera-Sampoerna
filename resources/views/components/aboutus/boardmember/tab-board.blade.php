@@ -19,7 +19,7 @@
                         <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-3" style="color: transparent;border-style: none;">Tab 3</a></li>
                     </ul>
                     <div class="tab-content mt-0 pt-0">
-                        <div class="tab-pane fade" role="tabpanel" id="tab-1">
+                        <div class="tab-pane fade show active" role="tabpanel" id="tab-1">
                             <div>
                                 <div class="col mb-3 py-2 px-2">
                                     <div class="card" style="border-radius: 0px;border-style: none;border-bottom-style: none;"><img class="img-fluid card-img w-100 d-block" src="{{ asset("assets/img/Board%20Members/Putera%20Sampoerna%20(1).webp") }}" style="border-radius: 0px;border-top-left-radius: 12px;border-top-right-radius: 12px;" alt="Putera Sampoerna" width="840px" height="371px">
@@ -121,7 +121,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade show active" role="tabpanel" id="tab-3">
+                        <div class="tab-pane fade " role="tabpanel" id="tab-3">
                             <div>
                                 <div class="col mb-3 py-2 px-2">
                                     <div class="card" style="border-radius: 0px;border-style: none;border-bottom-style: none;"><img class="img-fluid card-img w-100 d-block" src="{{ asset("assets/img/Board%20Members/George%20Yudistira%20Irawan.webp") }}" style="border-radius: 0px;border-top-left-radius: 12px;border-top-right-radius: 12px;" width="840px" height="371px" alt="George Yudistira">
