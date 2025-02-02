@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PageResource\Pages;
-use App\Filament\Resources\PageResource\RelationManagers;
 use App\Forms\Components\GrapesJsEditor;
 use App\Models\Page;
 use Filament\Forms\Components\DateTimePicker;
@@ -16,9 +15,12 @@ use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
+use Livewire\Component as Livewire;
 
 class PageResource extends Resource
 {
@@ -30,8 +32,10 @@ class PageResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title'),
-                TextInput::make('slug'),
+                TextInput::make('title')
+                    ->required(),
+                TextInput::make('slug')
+                    ->required(),
                 Select::make('lang')
                     ->label('Language')
                     ->options([
@@ -39,13 +43,27 @@ class PageResource extends Resource
                         'en' => 'English',
                     ])
                     ->default('id')
-                    ->native(false),
+                    ->native(false)
+                    ->required()
+                    ->reactive()
+                    ->afterStateUpdated(function (?string $state, Livewire $livewire, Page $page) {
+                        $livewire->dispatch('lang-changed',
+                            ['lang' => $state, 'content' => $page['content_'.$state ?? '']]);
+
+//                        $set('content', $page['content_'.$state]);
+                    }),
                 DateTimePicker::make('published_at')
                     ->seconds(false)
                     ->default(now())
-                    ->native(false),
-                Toggle::make('visibility')->default(true),
-                GrapesJsEditor::make('content')->id('content')->label('Content')->columnSpanFull(),
+                    ->native(false)
+                    ->required(),
+                Toggle::make('visibility')
+                    ->default(true)
+                    ->required(),
+                GrapesJsEditor::make('content')
+                    ->id('content')
+                    ->label('Content')
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -53,22 +71,30 @@ class PageResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('title')->searchable(),
-                TextColumn::make('slug')->searchable(),
-                IconColumn::make('visibility')->boolean(),
-                TextColumn::make('createdBy.name')->label('Created By'),
-                TextColumn::make('created_at')->label('Created At')->dateTime(),
+                TextColumn::make('title')->searchable()->sortable(),
+                TextColumn::make('slug')->searchable()->sortable(),
+                IconColumn::make('visibility')->boolean()->sortable(),
+                TextColumn::make('createdBy.name')->label('Created By')->sortable(),
+                TextColumn::make('created_at')->label('Created At')->dateTime()->sortable(),
             ])
             ->filters([
-                //
+                TernaryFilter::make('visibility')
+                    ->nullable()
+                    ->placeholder('All')
+                    ->trueLabel('Visible')
+                    ->falseLabel('Hidden'),
             ])
             ->actions([
+                ViewAction::make()
+                    ->url(fn(Page $page): string => url('/id/'.$page->slug))->openUrlInNewTab(),
                 EditAction::make(),
-                DeleteAction::make(),
+                DeleteAction::make()
+                    ->requiresConfirmation(),
             ])
             ->bulkActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+                    DeleteBulkAction::make()
+                        ->requiresConfirmation(),
                 ]),
             ]);
     }

@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 class Page extends Model
 {
     use HasFactory, SoftDeletes;
+
     protected $fillable = [
         'title', 'slug', 'visibility', 'published_at', 'content_id', 'content_en', 'created_by'
     ];
@@ -32,10 +33,22 @@ class Page extends Model
         return $this->belongsTo(User::class, 'created_by');
     }
 
+    /**
+     * Scope to filter visible pages.
+     *
+     * @param  Builder  $query
+     * @return Builder
+     */
+    public function scopeVisible($query)
+    {
+        return $query->where('visibility', true);
+        // ->where('published_at', '>=', now());
+    }
+
     protected function content(): Attribute
     {
         return Attribute::make(
-            get: fn () => [
+            get: fn() => [
                 'id' => $this->content_id,
                 'en' => $this->content_en
             ]

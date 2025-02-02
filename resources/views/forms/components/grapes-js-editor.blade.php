@@ -1,25 +1,27 @@
 <x-dynamic-component
-    :component="$getFieldWrapperView()"
-    :id="$getId()"
-    :label="$getLabel()"
-    :label-sr-only="$isLabelHidden()"
-    :helper-text="$getHelperText()"
-    :hint="$getHint()"
-    :hint-icon="$getHintIcon()"
-    :required="$isRequired()"
-    :state-path="$getStatePath()"
+        :component="$getFieldWrapperView()"
+        :id="$getId()"
+        :label="$getLabel()"
+        :label-sr-only="$isLabelHidden()"
+        :helper-text="$getHelperText()"
+        :hint="$getHint()"
+        :hint-icon="$getHintIcon()"
+        :required="$isRequired()"
+        :state-path="$getStatePath()"
 >
     <div>
-        <div id="gjs-{{ $getId() }}" style="height: 800px" wire:ignore
+        <div id="gjs" style="height: 800px" wire:ignore
              x-data="{ state: $wire.$entangle('{{ $getStatePath() }}') }"
-             x-init="createStudioEditor({
-                root: '#gjs-{{ $getId() }}',
+             x-init="
+             createStudioEditor({
+                root: '#gjs',
                 licenseKey: 'test',
                 pages: {
                     add: false
                 },
+                settingsMenu: false,
                 actions: ({actions}) => {
-                    const EXCLUDED_ACTIONS = ['store', 'showCode', 'preview'];
+                    const EXCLUDED_ACTIONS = ['store', 'showCode'];
 
                     // Helper function to create the fullscreen action object
                     const createFullscreenAction = () => ({
@@ -32,11 +34,11 @@
                             const target = {target: '#gjs'};
 
                             if (!isActive) {
-                                editor.runCommand('fullscreen', target);
                                 setState({active: 1});
+                                editor.runCommand('fullscreen', target);
                             } else {
-                                editor.stopCommand('fullscreen', target);
                                 setState({active: 0});
+                                editor.stopCommand('fullscreen', target);
                             }
                         }
                     });
@@ -52,7 +54,49 @@
                             }
                         );
                 },
-                settingsMenu: false,
+                onReady: (editor) => {
+                    const editorContainer = document.getElementById('gjs');
+                    const buttons = editorContainer.querySelectorAll('button')
+
+                    buttons.forEach(button => {
+                        button.setAttribute('type', 'button');
+                    })
+
+                    window.addEventListener('lang-changed', function (e) {
+                        const defaultState = {
+                            html: `<h1 style='padding: 2rem; text-align:center'>Hello Studio 👋</h1>`,
+                            css: ''
+                        }
+                        const content = e.detail[0].content ? JSON.parse(e.detail[0].content) : defaultState;
+
+                        if (content.html) editor.setComponents(content.html);
+                        if (content.css) editor.setStyle(content.css);
+
+                        state = JSON.stringify(content)
+                    })
+
+                    editor.on('rte:enable', async () => {
+                        await delay(50);
+                        const btnToolbar = document.getElementsByClassName('gjs-rte-toolbar')[0].querySelectorAll('button');
+
+                        btnToolbar.forEach(button => {
+                            button.setAttribute('type', 'button');
+                        })
+                    })
+
+                    editor.on('component:selected', async () => {
+                        await delay(50);
+                        const btnLayer = document.querySelector('.gjs-cv-unscale.gs-utl-flex.gs-utl-absolute button').parentElement.parentElement.querySelectorAll('button');
+                        btnLayer.forEach(button => {
+                            button.setAttribute('type', 'button');
+                        })
+                    })
+
+
+                    function delay(ms) {
+                      return new Promise(resolve => setTimeout(resolve, ms));
+                    }
+                },
                 onUpdate: (projectData, editor) => {
 
                     const css_code = editor.getCss();
@@ -75,6 +119,11 @@
                             }
                         ]
                     },
+                },
+                components: {
+                    contextMenu: ({ items, component, type, source }) => {
+                        return []
+                    }
                 },
                 storage: {
                     type: 'self',
@@ -102,6 +151,12 @@
                                             <meta charset='UTF-8'>
                                             <meta name='viewport' content='width=device-width, initial-scale=1.0'>
                                             <title>Page</title>
+                                            <link rel='preload' as='style' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'>
+                                            <noscript>
+                                                <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'>
+                                            </noscript>
+                                            <link rel='stylesheet' href='{{ asset("assets/css/styles.min.css") }}'>
+                                            <link rel='stylesheet' href='{{ asset("assets/css/app.css") }}'>
                                             <style>
                                                 ${savedState.css}
                                             </style>

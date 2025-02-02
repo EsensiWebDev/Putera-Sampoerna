@@ -1,11 +1,12 @@
 <?php
 
+use App\Models\Page;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/language/{locale}', function ($locale) {
     $previousUrl = url()->previous();
     $availableLocales = config('app.available_locales');
-    $pattern = '/\\b(' . implode('|', $availableLocales) . ')\\b/';
+    $pattern = '/\\b('.implode('|', $availableLocales).')\\b/';
     $newUrl = preg_replace($pattern, $locale, $previousUrl);
     return redirect($newUrl);
 })->where('locale', implode('|', config('app.available_locales')));
@@ -89,6 +90,20 @@ Route::middleware([\App\Http\Middleware\SetLocale::class])->group(function () {
         })->name('contact-us');
 
         Route::get("/news/{slug}", \App\Livewire\DetailNews::class)->name("read-news");
+
+        Route::get("/{slug}", function ($locale, $slug) {
+            $page = Page::where("slug", $slug)->firstOrFail();
+
+            $content = match ($locale) {
+                "id" => $page->content_id,
+                default => $page->content_en
+            };
+
+            return view("page", [
+                "page" => $page,
+                "content" => json_decode($content, true),
+            ]);
+        })->name("dynamic-page");
     });
 });
 

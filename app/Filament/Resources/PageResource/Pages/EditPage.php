@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\PageResource\Pages;
 
 use App\Filament\Resources\PageResource;
+use Filament\Actions\Action;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\EditRecord;
 
@@ -21,7 +22,6 @@ class EditPage extends EditRecord
     {
         $data['content'] = $data['content_id'];
         $data['lang'] = 'id';
-        unset($data['content_id']);
         return $data;
     }
 
@@ -44,5 +44,24 @@ class EditPage extends EditRecord
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');
+    }
+
+    protected function getSaveFormAction(): Action
+    {
+        return parent::getSaveFormAction()
+            ->submit(null)
+            ->requiresConfirmation()
+            ->action(function () {
+                $this->closeActionModal();
+                $this->save();
+            });
+    }
+
+    protected function getFormActions(): array
+    {
+        return [
+            $this->getSaveFormAction(),
+            $this->getCancelFormAction()
+        ];
     }
 }
