@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Page;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/language/{locale}', function ($locale) {
@@ -99,9 +100,16 @@ Route::middleware([\App\Http\Middleware\SetLocale::class])->group(function () {
                 default => $page->content_en
             };
 
+            $decodedContent = json_decode($content, true);
+
+            $renderedHtml = Blade::render($decodedContent['html']);
+
+            $decodedContent['html'] = $renderedHtml;
+
+
             return view("page", [
                 "page" => $page,
-                "content" => json_decode($content, true),
+                "content" => $decodedContent,
             ]);
         })->name("dynamic-page");
     });

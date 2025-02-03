@@ -92,6 +92,41 @@
                         })
                     })
 
+                    editor.DomComponents.addType('livewire-latest-update', {
+                      isComponent: (el) => el.tagName === 'LIVEWIRE:NEWS.LATEST-UPDATE',
+                      model: {
+                        defaults: {
+                          tagName: 'livewire:news.latest-update',
+                          traits: [
+                            {
+                              type: 'text',
+                              name: 'id',
+                              label: 'ID',
+                            },
+                          ],
+                          droppable: false,
+                          stylable: false,
+                        },
+                      },
+                      view: {
+                        onRender() {
+                          // Visual representation in the editor
+                          this.el.innerHTML = 'Livewire Latest Update';
+                          this.el.style.border = '1px solid #ccc';
+                          this.el.style.padding = '10px';
+                          this.el.style.background = '#f9f9f9';
+                        },
+                      },
+                    });
+
+                    editor.BlockManager.add('livewire-latest-update', {
+                      label: 'Livewire Latest Update',
+                      category: 'Livewire',
+                      content: {
+                        type: 'livewire-latest-update',
+                      },
+                    });
+
 
                     function delay(ms) {
                       return new Promise(resolve => setTimeout(resolve, ms));
