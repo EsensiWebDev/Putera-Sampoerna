@@ -24,51 +24,76 @@ class NewsResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('slug')
-                    ->required()
-                    ->minLength(5)
-                    ->maxLength(255)
-                    ->unique('articles', 'slug', ignoreRecord: true),
+                // Full-width row for the toggle
+                Forms\Components\Toggle::make('isPublished')
+                    ->label('Publish Article')
+                    ->onColor('success')
+                    ->offColor('danger')
+                    ->default(true)
+                    ->columnSpanFull(),
+
+                // Group `slug` and `created_at` in a single row
+                Forms\Components\Group::make([
+                    Forms\Components\TextInput::make('slug')
+                        ->required()
+                        ->minLength(5)
+                        ->maxLength(255)
+                        ->unique('articles', 'slug', ignoreRecord: true)
+                        ->label('Slug'),
+                    Forms\Components\DatePicker::make('created_at')
+                        ->default(now())
+                        ->required()
+                        ->label('Created At'),
+                ])
+                    ->columns(2), // Ensure these fields are side-by-side
+
                 Forms\Components\TextInput::make('title_indonesia')
-                    ->required()
                     ->minLength(5)
                     ->maxLength(255)
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->label('Title (Indonesian)'),
+
                 Forms\Components\TextInput::make('title_english')
-                    ->required()
                     ->minLength(5)
                     ->maxLength(255)
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->label('Title (English)'),
                 Forms\Components\FileUpload::make('thumbnail')
                     ->image()
                     ->disk('public')
                     ->directory('images')
                     ->columnSpanFull()
+                    ->visibility('public')
                     ->preserveFilenames()
                     ->label('Thumbnail'),
+
                 Forms\Components\RichEditor::make('content_indonesia')
-                    ->columnSpan(4),
+                    ->columnSpanFull(),
                 Forms\Components\RichEditor::make('content_english')
-                    ->columnSpan(4),
+                    ->columnSpanFull(),
                 Forms\Components\Hidden::make('lang')
                     ->default('id') // Set the default value
-                    ->columnSpanFull(),
-                Forms\Components\Hidden::make('isPublished')
-                    ->default(true) // Set the default value
                     ->columnSpanFull(),
                 Forms\Components\Hidden::make('link') // Add the hidden link field
                     ->default(fn($get) => url('/news/' . $get('slug'))) // Dynamically create the URL using the slug field
                     ->columnSpanFull(),
-            ]);
+            ])
+            ->columns(1);
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('slug'),
-                Tables\Columns\TextColumn::make('title_indonesia'),
-                Tables\Columns\TextColumn::make('title_english'),
+                Tables\Columns\TextColumn::make('slug')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('title_indonesia')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('title_english')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->date()
+                    ->searchable(),
             ])
             ->filters([
                 //
@@ -80,7 +105,8 @@ class NewsResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->defaultSort('created_at', 'desc');
     }
 
     public static function getRelations(): array
