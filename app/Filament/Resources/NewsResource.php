@@ -39,7 +39,11 @@ class NewsResource extends Resource
                         ->minLength(5)
                         ->maxLength(255)
                         ->unique('articles', 'slug', ignoreRecord: true)
-                        ->label('Slug'),
+                        ->label('Slug')
+                        ->afterStateUpdated(
+                            fn($state, callable $set) =>
+                            $set('link', url('/news/' . $state))
+                        ),
                     Forms\Components\DatePicker::make('created_at')
                         ->default(now())
                         ->required()
