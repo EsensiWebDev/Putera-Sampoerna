@@ -129,4 +129,5 @@ return [
     ],
 
 
+    'grapesjs_token' => env('GRAPESJS_TOKEN'),
 ];

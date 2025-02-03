@@ -15,7 +15,7 @@
              x-init="
              createStudioEditor({
                 root: '#gjs',
-                licenseKey: 'test',
+                licenseKey: '{{ config('app.grapesjs_token')  }}',
                 pages: {
                     add: false
                 },
