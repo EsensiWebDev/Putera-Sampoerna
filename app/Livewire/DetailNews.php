@@ -13,7 +13,7 @@ class DetailNews extends Component
     public function render()
     {
         $article = Article::where('slug', $this->slug)->first();
-        $articles = Article::orderBy("id", "DESC")->limit(3)->get();
+        $articles = Article::orderBy('created_at', 'DESC')->limit(3)->get();
         return view('livewire.detail-news', [
             "article" => $article,
             "articles" => $articles

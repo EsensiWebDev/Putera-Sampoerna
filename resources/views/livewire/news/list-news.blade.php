@@ -89,7 +89,7 @@
                                                         '...',
                                                     );
                         @endphp
-                        <div class="col col-6 col-sm-6 col-lg-4 py-2 px-2"><a href="/media/news/{{ $article->slug }}">
+                        <div class="col col-6 col-sm-6 col-lg-4 py-2 px-2"><a href="{{ route("read-news", ['locale' => app()->getLocale(), $article->slug]) }}">
                                 <div><img class="img-fluid" style="margin-bottom: 36px;"
                                           src="{{ str_contains($article->thumbnail, '/uploads') ? asset($article->thumbnail) : asset('storage/' . $article->thumbnail) }}" width="424px" height="290px"
                                           alt="Media Image"></div>

@@ -9,7 +9,7 @@ class ListNews extends Component
 {
     public function render()
     {
-        $articles = Article::orderBy("id", "DESC")->paginate(10);
+        $articles = Article::orderBy('created_at', 'DESC')->paginate(10);
 
         return view('livewire.news.list-news', [
             "articles" => $articles

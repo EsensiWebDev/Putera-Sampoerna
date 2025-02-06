@@ -90,7 +90,7 @@ Route::middleware([\App\Http\Middleware\SetLocale::class])->group(function () {
             return view('pages.contact-us');
         })->name('contact-us');
 
-        Route::get("/news/{slug}", \App\Livewire\DetailNews::class)->name("read-news");
+        Route::get("/media/news/{slug}", \App\Livewire\DetailNews::class)->name("read-news");
 
         Route::get("/{slug}", function ($locale, $slug) {
             $page = Page::where("slug", $slug)->firstOrFail();
