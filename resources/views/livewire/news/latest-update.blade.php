@@ -38,7 +38,7 @@
                             src="{{ str_contains($article->thumbnail, '/uploads') ? asset($article->thumbnail) : asset('storage/' . $article->thumbnail) }}"
                              alt="Beasiswa">
                         <div
-                            style="position: absolute; bottom: 0; left: 0; width: 100%; height: 600px; background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 1%, transparent 80%);">
+                            style="position: absolute; bottom: 0;  left: 0; width: 100%; height: 600px; background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 1%, transparent 80%);">
                         </div>
                         <div class="card-img-overlay d-flex flex-column justify-content-end justify-content-lg-end justify-content-xxl-end py-5"
                             style="position: relative; z-index: 1;">

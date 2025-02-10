@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/language/{locale}', function ($locale) {
     $previousUrl = url()->previous();
     $availableLocales = config('app.available_locales');
-    $pattern = '/\\b('.implode('|', $availableLocales).')\\b/';
+    $pattern = '/\\b(' . implode('|', $availableLocales) . ')\\b/';
     $newUrl = preg_replace($pattern, $locale, $previousUrl);
     return redirect($newUrl);
 })->where('locale', implode('|', config('app.available_locales')));
@@ -16,8 +16,12 @@ Route::get('/', function () {
     return redirect('/en');
 });
 
+Route::get("/{slug}", [\App\Http\Controllers\RedirectController::class, 'redirect_english'])
+        ->name("dynamic-page");
+
 Route::middleware([\App\Http\Middleware\SetLocale::class])->group(function () {
     Route::group(["prefix" => "{locale}"], function () {
+
         Route::get('/', function () {
             return view('pages.home');
         })->name("home");
@@ -90,30 +94,21 @@ Route::middleware([\App\Http\Middleware\SetLocale::class])->group(function () {
             return view('pages.contact-us');
         })->name('contact-us');
 
+
         Route::get("/media/news/{slug}", \App\Livewire\DetailNews::class)->name("read-news");
 
-        Route::get("/{slug}", function ($locale, $slug) {
-            $page = Page::where("slug", $slug)->firstOrFail();
 
-            $content = match ($locale) {
-                "id" => $page->content_id,
-                default => $page->content_en
-            };
+        Route::get("/{slug}", [\App\Http\Controllers\RedirectController::class, 'redirect_to_news'])
+        ->name("dynamic-page");
 
-            $decodedContent = json_decode($content, true);
-
-            $renderedHtml = Blade::render($decodedContent['html']);
-
-            $decodedContent['html'] = $renderedHtml;
-
-
-            return view("page", [
-                "page" => $page,
-                "content" => $decodedContent,
-            ]);
-        })->name("dynamic-page");
     });
 });
+
+// Route::get('/{slug}', [\App\Http\Controllers\RedirectController::class, 'redirect_to_news'])->where('slug', '.*');
+
+// Route::get('id/{slug}', [\App\Http\Controllers\RedirectController::class, 'redirect_url_post_id']);
+
+
 
 Route::post("/contact", [\App\Http\Controllers\ContactController::class, "store"]);
 Route::get("/adm/optimize", function () {
