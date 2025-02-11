@@ -99,7 +99,7 @@ Route::middleware([\App\Http\Middleware\SetLocale::class])->group(function () {
 
 
         Route::get("/{slug}", [\App\Http\Controllers\RedirectController::class, 'redirect_to_news'])
-        ->name("dynamic-page");
+        ->name("dynamic-page")->where('slug', '.*');
 
     });
 });
