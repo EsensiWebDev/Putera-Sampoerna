@@ -11,6 +11,8 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -32,36 +34,81 @@ class NewsResource extends Resource
                     ->default(true)
                     ->columnSpanFull(),
 
-                // Group `slug` and `created_at` in a single row
+                Forms\Components\Group::make([
+                    Forms\Components\Select::make('author_id')
+                        ->label('Author')
+                        ->options(User::pluck('name', 'id'))
+                        ->default(Auth::id())
+                        ->preload(),
+
+                    Forms\Components\DatePicker::make('created_at')
+                        ->default(now())
+                        ->required()
+                        ->label('Created At'),
+                ])
+                    ->columns(2),
+
+                Forms\Components\Group::make([
+                    Forms\Components\TextInput::make('category')
+                        ->label('Category (English)'),
+
+                    Forms\Components\TextInput::make('category_ind')
+                        ->label('Category (Indonesia)'),
+
+                ])
+                    ->columns(2),
+
+                Forms\Components\Group::make([
+                    Forms\Components\TagsInput::make('tags')
+                        ->label('Tags (English)')
+                        ->separator(',')
+                        ->saveRelationshipsWhenHidden(),
+
+                    Forms\Components\TagsInput::make('tags_ind')
+                        ->label('Tags (Indonesia)')
+                        ->separator(',')
+                        ->saveRelationshipsWhenHidden(),
+
+                ])
+                    ->columns(2),
+
                 Forms\Components\Group::make([
                     Forms\Components\TextInput::make('slug')
                         ->required()
                         ->minLength(5)
                         ->maxLength(255)
                         ->unique('articles', 'slug', ignoreRecord: true)
-                        ->label('Slug')
+                        ->label('Slug (English)')
                         ->afterStateUpdated(
                             fn($state, callable $set) =>
                             $set('link', url('/news/' . $state))
                         ),
-                    Forms\Components\DatePicker::make('created_at')
-                        ->default(now())
+                    Forms\Components\TextInput::make('slug_ind')
                         ->required()
-                        ->label('Created At'),
+                        ->minLength(5)
+                        ->maxLength(255)
+                        ->unique('articles', 'slug_ind', ignoreRecord: true)
+                        ->label('Slug (Indonesia)')
+                        ->afterStateUpdated(
+                            fn($state, callable $set) =>
+                            $set('link_ind', url('/news/' . $state))
+                        ),
+
                 ])
-                    ->columns(2), // Ensure these fields are side-by-side
+                    ->columns(2),
 
-                Forms\Components\TextInput::make('title_indonesia')
-                    ->minLength(5)
-                    ->maxLength(255)
-                    ->columnSpanFull()
-                    ->label('Title (Indonesian)'),
+                Forms\Components\Group::make([
+                    Forms\Components\TextInput::make('title_english')
+                        ->minLength(5)
+                        ->maxLength(255)
+                        ->label('Title (English)'),
+                    Forms\Components\TextInput::make('title_indonesia')
+                        ->minLength(5)
+                        ->maxLength(255)
+                        ->label('Title (Indonesian)'),
+                ])
+                    ->columns(2),
 
-                Forms\Components\TextInput::make('title_english')
-                    ->minLength(5)
-                    ->maxLength(255)
-                    ->columnSpanFull()
-                    ->label('Title (English)'),
                 Forms\Components\FileUpload::make('thumbnail')
                     ->image()
                     ->disk('public')
@@ -75,11 +122,34 @@ class NewsResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\RichEditor::make('content_english')
                     ->columnSpanFull(),
+
+                Forms\Components\Group::make([
+                    Forms\Components\Textarea::make('keyword')
+                        ->autosize()
+                        ->label('Keyword (English)'),
+                    Forms\Components\Textarea::make('keyword_ind')
+                        ->autosize()
+                        ->label('Keyword (Indonesia)'),
+                ])
+                    ->columns(2),
+
+                Forms\Components\Group::make([
+                    Forms\Components\TextInput::make('meta_description')
+                        ->label('Meta Description (English)'),
+                    Forms\Components\TextInput::make('meta_description_ind')
+                        ->label('Meta Description (Indonesia)'),
+                ])
+                    ->columns(2),
+
                 Forms\Components\Hidden::make('lang')
                     ->default('id') // Set the default value
                     ->columnSpanFull(),
+
                 Forms\Components\Hidden::make('link') // Add the hidden link field
                     ->default(fn($get) => url('/news/' . $get('slug'))) // Dynamically create the URL using the slug field
+                    ->columnSpanFull(),
+                Forms\Components\Hidden::make('link_ind') // Add the hidden link field
+                    ->default(fn($get) => url('/news/' . $get('slug_ind'))) // Dynamically create the URL using the slug field
                     ->columnSpanFull(),
             ])
             ->columns(1);
@@ -94,6 +164,8 @@ class NewsResource extends Resource
                 Tables\Columns\TextColumn::make('title_indonesia')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('title_english')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('author.name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->date()

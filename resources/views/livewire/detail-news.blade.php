@@ -1,3 +1,34 @@
+@php
+    $locale = app()->getLocale(); // Get the current locale
+
+    // Set title based on locale
+    $metaTitle = $article->meta_title ?? (
+        $locale == 'id' 
+            ? ($article->title_indonesia ?? $article->title_english ?? '') 
+            : ($article->title_english ?? $article->title_indonesia ?? '')
+    );
+    // Set description based on locale
+    $metaDescription = $locale == 'id' 
+            ? ($article->meta_description_ind ?? $article->meta_description ?? '') 
+            : ($article->meta_description ?? $article->meta_description_ind ?? '');
+
+    // Set keywords based on locale
+    $metaKeywords = $locale == 'id' 
+        ? ($article->keyword_ind ?? $article->keyword ?? '') 
+        : ($article->keyword ?? $article->keyword_ind ?? '');
+
+    // Set Open Graph image
+    $ogImage = asset($article->thumbnail ?? '');
+@endphp
+
+@section('title', $metaTitle)
+@section('meta_description', $metaDescription)
+@section('meta_keywords', $metaKeywords)
+
+@section('og_title', $metaTitle)
+@section('og_description', $metaDescription)
+@section('og_image', $ogImage)
+
 <section id="news" style="{{ is_null($article) ? 'background-color: #2b3035' : '' }}">
     @if (is_null($article))
         <div style="color: white;display: flex; justify-content: center; align-items: center; height: 100vh;">

@@ -12,7 +12,14 @@ class DetailNews extends Component
 
     public function render()
     {
-        $article = Article::where('slug', $this->slug)->first();
+        $locale = app()->getLocale();
+        $article = Article::where(function ($query) use ($locale) {
+            if ($locale == 'id') {
+                $query->where('slug_ind', $this->slug)->orWhere('slug', $this->slug);
+            } else {
+                $query->where('slug', $this->slug)->orWhere('slug_ind', $this->slug);
+            }
+        })->first();
         $articles = Article::orderBy('created_at', 'DESC')->limit(3)->get();
         return view('livewire.detail-news', [
             "article" => $article,

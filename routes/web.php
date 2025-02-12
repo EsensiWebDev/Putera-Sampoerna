@@ -2,13 +2,42 @@
 
 use App\Models\Page;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Article;
 
-Route::get('/language/{locale}', function ($locale) {
+Route::get('/language/{locale}', function ($locale, Request $request) {
     $previousUrl = url()->previous();
     $availableLocales = config('app.available_locales');
+
+    // Ensure locale is valid
+    if (!in_array($locale, $availableLocales)) {
+        abort(404);
+    }
+
+    // Extract the current locale from the URL
     $pattern = '/\\b(' . implode('|', $availableLocales) . ')\\b/';
     $newUrl = preg_replace($pattern, $locale, $previousUrl);
+
+    // Try to get the article slug from the URL
+    preg_match('/news\/([^\/]+)/', $previousUrl, $matches);
+    if (!empty($matches[1])) {
+        $currentSlug = $matches[1];
+
+        // Find the article based on the current slug
+        $article = Article::where('slug', $currentSlug)
+            ->orWhere('slug_ind', $currentSlug)
+            ->first();
+
+        if ($article) {
+            // Determine the correct slug based on the new locale
+            $newSlug = $locale === 'id' ? ($article->slug_ind ?? $article->slug) : $article->slug;
+
+            // Replace the slug in the URL
+            $newUrl = preg_replace('/news\/([^\/]+)/', "news/{$newSlug}", $newUrl);
+        }
+    }
+
     return redirect($newUrl);
 })->where('locale', implode('|', config('app.available_locales')));
 
