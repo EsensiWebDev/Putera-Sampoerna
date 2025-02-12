@@ -36,7 +36,7 @@
                     <div class="card py-3" style="border-radius: 0px; border-style: none; position: relative;"> <img
                             class="img-fluid card-img w-100 d-block" style="border-radius: 0px;"
                             src="{{ str_contains($article->thumbnail, '/uploads') ? asset($article->thumbnail) : asset('storage/' . $article->thumbnail) }}"
-                             alt="Beasiswa">
+                            alt="Beasiswa">
                         <div
                             style="position: absolute; bottom: 0;  left: 0; width: 100%; height: 600px; background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 1%, transparent 80%);">
                         </div>
@@ -88,7 +88,7 @@
                         <div class="d-flex flex-row py-2 px-3 pb-3">
                             <div class="col">
                                 <div
-                                    style="background: url({{ str_contains($article->thumbnail, '/uploads') ? asset($article->thumbnail) : asset('storage/' . $article->thumbnail) }}) center / cover no-repeat;height: 232px;">
+                                    style="background: url('{{ str_contains($article->thumbnail, '/uploads') ? asset($article->thumbnail) : asset('storage/' . $article->thumbnail) }}') center / cover no-repeat;height: 232px;">
                                 </div>
                             </div>
                             <div class="col d-flex flex-column justify-content-xxl-center px-3">
@@ -116,7 +116,7 @@
                         </div>
                     @endforeach
                 @else
-                    <h1 class="ms-4">No More Article..</h1>
+                    <h1></h1>
                 @endif
             </div>
         </div>
