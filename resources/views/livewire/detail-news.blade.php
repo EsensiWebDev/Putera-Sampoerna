@@ -129,7 +129,7 @@
     @endif
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const links = document.querySelectorAll('.content a');
+            const links = document.querySelectorAll('#content a');
             
             links.forEach(link => {
                 link.setAttribute('target', '_blank');
