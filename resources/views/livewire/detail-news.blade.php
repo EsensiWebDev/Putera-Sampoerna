@@ -2,20 +2,22 @@
     $locale = app()->getLocale(); // Get the current locale
 
     // Set title based on locale
-    $metaTitle = $article->meta_title ?? (
-        $locale == 'id' 
-            ? ($article->title_indonesia ?? $article->title_english ?? '') 
-            : ($article->title_english ?? $article->title_indonesia ?? '')
-    );
+    $metaTitle =
+        $article->meta_title ??
+        ($locale == 'id'
+            ? $article->title_indonesia ?? ($article->title_english ?? '')
+            : $article->title_english ?? ($article->title_indonesia ?? ''));
     // Set description based on locale
-    $metaDescription = $locale == 'id' 
-            ? ($article->meta_description_ind ?? $article->meta_description ?? '') 
-            : ($article->meta_description ?? $article->meta_description_ind ?? '');
+    $metaDescription =
+        $locale == 'id'
+            ? $article->meta_description_ind ?? ($article->meta_description ?? '')
+            : $article->meta_description ?? ($article->meta_description_ind ?? '');
 
     // Set keywords based on locale
-    $metaKeywords = $locale == 'id' 
-        ? ($article->keyword_ind ?? $article->keyword ?? '') 
-        : ($article->keyword ?? $article->keyword_ind ?? '');
+    $metaKeywords =
+        $locale == 'id'
+            ? $article->keyword_ind ?? ($article->keyword ?? '')
+            : $article->keyword ?? ($article->keyword_ind ?? '');
 
     // Set Open Graph image
     $ogImage = asset($article->thumbnail ?? '');
@@ -36,47 +38,31 @@
         </div>
     @else
         <section>
-            <div class="d-flex align-items-end"
-                style="height: 600px;
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%),
-        url('{{ str_contains($article->thumbnail, '/uploads') ? asset($article->thumbnail) : asset('storage/' . $article->thumbnail) }}') center / cover no-repeat,
-        linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);">
-
-                <div class="container" style="padding-bottom: 64px;">
-                    <div class="row">
-                        <div class="col-md-12">
-                            @php
-                                $locale = app()->getLocale();
-                                $title = '';
-                                $content = '';
-
-                                if ($locale == 'id') {
-                                    $title = !is_null($article->title_indonesia)
-                                        ? $article->title_indonesia
-                                        : $article->title_english;
-                                } elseif ($locale == 'en') {
-                                    $title = !is_null($article->title_english)
-                                        ? $article->title_english
-                                        : $article->title_indonesia;
-                                }
-
-                                if ($locale == 'id') {
-                                    $content = !is_null($article->content_indonesia)
-                                        ? $article->content_indonesia
-                                        : $article->content_english;
-                                } elseif ($locale == 'en') {
-                                    $content = !is_null($article->content_english)
-                                        ? $article->content_english
-                                        : $article->content_indonesia;
-                                }
-                            @endphp
-
-                            <h1 style="font-family: Campton; color: white !important;">{!! $title !!}</h1>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <div class="d-flex align-items-end position-relative"
+            style="height: 600px; 
+                   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%), 
+                               url('{{ str_contains($article->thumbnail, '/uploads') ? asset($article->thumbnail) : asset('storage/' . $article->thumbnail) }}') center / cover no-repeat;">
+           
+           <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 200px;
+                       background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);">
+           </div>
+       
+           <div class="container" style="padding-bottom: 64px; position: relative; z-index: 2;">
+               <div class="row">
+                   <div class="col-md-12">
+                       @php
+                           $locale = app()->getLocale();
+                           $title = $locale == 'id' ? ($article->title_indonesia ?? $article->title_english) 
+                                                    : ($article->title_english ?? $article->title_indonesia);
+                           $content = $locale == 'id' ? ($article->content_indonesia ?? $article->content_english) 
+                                                      : ($article->content_english ?? $article->content_indonesia);
+                       @endphp
+                       <h1 style="font-family: Campton; color: white !important;">{!! $title !!}</h1>
+                   </div>
+               </div>
+           </div>
+       </div>
+       
         </section>
         <section id="content" class="px-4 py-4 mx-4">
             {!! $content !!}
@@ -92,7 +78,7 @@
                 <div class="slick-slider d-flex flex-row" style="margin-bottom: 72px;">
                     @if (isset($articles) && $articles->count() > 0)
                         @foreach ($articles as $article)
-                            <a href="{{ route('read-news', ['locale' => app()->getLocale(), $article->slug]) }}"
+                            <a href="{{ route('read-news', ['locale' => app()->getLocale(), 'slug' => app()->getLocale() === 'id' ? $article->slug_ind ?? $article->slug : $article->slug]) }}"
                                 style="color: black;">
                                 <div class="slick-item" wire:key="{{ $loop->iteration }}">
                                     <div>

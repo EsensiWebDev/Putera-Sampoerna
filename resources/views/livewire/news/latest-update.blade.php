@@ -33,32 +33,44 @@
             @endphp
             @if (isset($article))
                 <div class="col-md-6 px-0 py-0">
-                    <div class="card py-3" style="border-radius: 0px; border-style: none; position: relative;"> <img
-                            class="img-fluid card-img w-100 d-block" style="border-radius: 0px;"
-                            src="{{ str_contains($article->thumbnail, '/uploads') ? asset($article->thumbnail) : asset('storage/' . $article->thumbnail) }}"
-                            alt="Beasiswa">
-                        <div
-                            style="position: absolute; bottom: 0;  left: 0; width: 100%; height: 600px; background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 1%, transparent 80%);">
+                    <div class="card py-3" style="border-radius: 0px; border-style: none; position: relative;">
+                        <!-- Image container -->
+                        <div style="position: relative;">
+                            <img class="img-fluid card-img d-block" style="border-radius: 0px; width: 100%;"
+                                src="{{ str_contains($article->thumbnail, '/uploads') ? asset($article->thumbnail) : asset('storage/' . $article->thumbnail) }}"
+                                alt="Beasiswa">
+
+                            <!-- Dark gradient overlay -->
+                            <div
+                                style="position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; 
+                                        background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 10%, transparent 80%);">
+                            </div>
                         </div>
-                        <div class="card-img-overlay d-flex flex-column justify-content-end justify-content-lg-end justify-content-xxl-end py-5"
-                            style="position: relative; z-index: 1;">
-                            <h4 class="text-light" style="font-family: Campton;">
-                                {!! $title !!}
-                            </h4>
-                            <p class="text-light" style="font-family: Campton;">{{ $content }}</p>
-                            <a class="link-light"
-                                href="{{ route('read-news', ['locale' => app()->getLocale(), $article->slug]) }}"
-                                style="font-family: Campton;">
-                                {{ __('Read More') }}&nbsp;
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                    viewBox="0 0 20 20" fill="none">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M12.2929 5.29289C12.6834 4.90237 13.3166 4.90237 13.7071 5.29289L17.7071 9.29289C18.0976 9.68342 18.0976 10.3166 17.7071 10.7071L13.7071 14.7071C13.3166 15.0976 12.6834 15.0976 12.2929 14.7071C11.9024 14.3166 11.9024 13.6834 12.2929 13.2929L14.5858 11H3C2.44772 11 2 10.5523 2 10C2 9.44772 2.44772 9 3 9H14.5858L12.2929 6.70711C11.9024 6.31658 11.9024 5.68342 12.2929 5.29289Z"
-                                        fill="currentColor"></path>
-                                </svg>&nbsp;
-                            </a>
+
+                        <!-- Text content (Above Image) -->
+                        <div class="card-img-overlay d-flex flex-column justify-content-end py-5"
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; background: rgba(0,0,0,0);">
+
+                            <div class="container">
+                                <h4 class="text-light" style="font-family: Campton; font-weight: bold;">
+                                    {!! $title !!}
+                                </h4>
+                                <p class="text-light" style="font-family: Campton;">{{ $content }}</p>
+                                <a class="link-light"
+                                    href="{{ route('read-news', ['locale' => app()->getLocale(), 'slug' => app()->getLocale() === 'id' ? $article->slug_ind ?? $article->slug : $article->slug]) }}"
+                                    style="font-family: Campton;">
+                                    {{ __('Read More') }}&nbsp;
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                                        viewBox="0 0 20 20" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M12.2929 5.29289C12.6834 4.90237 13.3166 4.90237 13.7071 5.29289L17.7071 9.29289C18.0976 9.68342 18.0976 10.3166 17.7071 10.7071L13.7071 14.7071C13.3166 15.0976 12.6834 15.0976 12.2929 14.7071C11.9024 14.3166 11.9024 13.6834 12.2929 13.2929L14.5858 11H3C2.44772 11 2 10.5523 2 10C2 9.44772 2.44772 9 3 9H14.5858L12.2929 6.70711C11.9024 6.31658 11.9024 5.68342 12.2929 5.29289Z"
+                                            fill="currentColor"></path>
+                                    </svg>&nbsp;
+                                </a>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             @else
                 <h1>No Article..</h1>
@@ -101,7 +113,7 @@
                                     {!! $content !!}
                                 </p>
                                 <a class="fs-6"
-                                    href="{{ route('read-news', ['locale' => app()->getLocale(), $article->slug]) }}"
+                                    href="{{ route('read-news', ['locale' => app()->getLocale(), 'slug' => app()->getLocale() === 'id' ? $article->slug_ind ?? $article->slug : $article->slug]) }}"
                                     style="color: #292F78; font-family: Campton;">
                                     {{ __('Read More') }}&nbsp;
                                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
