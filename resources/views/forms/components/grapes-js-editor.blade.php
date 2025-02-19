@@ -76,7 +76,7 @@
                     })
 
                     editor.on('rte:enable', async () => {
-                        await delay(50);
+                        await delay(150);
                         const btnToolbar = document.getElementsByClassName('gjs-rte-toolbar')[0].querySelectorAll('button');
 
                         btnToolbar.forEach(button => {
@@ -85,7 +85,7 @@
                     })
 
                     editor.on('component:selected', async () => {
-                        await delay(50);
+                        await delay(150);
                         const btnLayer = document.querySelector('.gjs-cv-unscale.gs-utl-flex.gs-utl-absolute button').parentElement.parentElement.querySelectorAll('button');
                         btnLayer.forEach(button => {
                             button.setAttribute('type', 'button');
