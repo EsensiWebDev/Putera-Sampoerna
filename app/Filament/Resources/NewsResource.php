@@ -43,6 +43,7 @@ class NewsResource extends Resource
 
                     Forms\Components\DateTimePicker::make('created_at')
                         ->default(now())
+                        ->timezone('Asia/Bangkok')
                         ->required()
                         ->label('Created At'),
                 ])
