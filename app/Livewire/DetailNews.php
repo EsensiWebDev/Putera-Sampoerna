@@ -8,7 +8,31 @@ use Livewire\Component;
 class DetailNews extends Component
 {
     public string $slug = "";
+    public $article;
 
+    public function mount()
+    {
+        $locale = app()->getLocale();
+
+        // Find the article based on the slug and locale
+        $this->article = Article::where(function ($query) use ($locale) {
+            if ($locale == 'id') {
+                $query->where('slug_ind', $this->slug)->orWhere('slug', $this->slug);
+            } else {
+                $query->where('slug', $this->slug)->orWhere('slug_ind', $this->slug);
+            }
+        })->first();
+
+        // Redirect to /news if content or title for the current locale is empty
+        if ($this->article) {
+            if (
+                ($locale === 'id' && (empty($this->article->content_indonesia) || empty($this->article->title_indonesia))) ||
+                ($locale === 'en' && (empty($this->article->content_english) || empty($this->article->title_english)))
+            ) {
+                return $this->redirect($locale == 'id' ?  'id/media/news' : 'en/media/news', navigate: true);
+            }
+        }
+    }
 
     public function render()
     {

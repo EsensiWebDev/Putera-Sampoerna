@@ -10,25 +10,48 @@
     <div class="container">
         <div class="row">
             @php
-                $article = \App\Models\Article::orderBy('created_at', 'DESC')->first();
-                if (isset($article)) {
-                    $locale = app()->getLocale();
-                    $title =
-                        $locale == 'id'
-                            ? $article->title_indonesia ?? $article->title_english
-                            : $article->title_english ?? $article->title_indonesia;
-                    $content =
-                        $locale == 'id'
-                            ? \Illuminate\Support\Str::limit(
-                                preg_replace('/$$[^$$]*$$/', '', strip_tags($article->content_indonesia)),
-                                100,
-                                '...',
-                            )
-                            : \Illuminate\Support\Str::limit(
-                                preg_replace('/$$[^$$]*$$/', '', strip_tags($article->content_english)),
-                                100,
-                                '...',
-                            );
+                $locale = app()->getLocale();
+
+                $article = \App\Models\Article::where(function ($query) use ($locale) {
+                    if ($locale === 'id') {
+                        // For 'id' locale, ensure content_indonesia and title_indonesia are not empty
+                        $query
+                            ->whereNotNull('content_indonesia')
+                            ->whereNotNull('title_indonesia')
+                            ->where('content_indonesia', '!=', '')
+                            ->where('title_indonesia', '!=', '');
+                    } else {
+                        // For 'en' locale, ensure content and title_english are not empty
+                        $query
+                            ->whereNotNull('content_english')
+                            ->whereNotNull('title_english')
+                            ->where('content_english', '!=', '')
+                            ->where('title_english', '!=', '');
+                    }
+                })
+                    ->orderBy('created_at', 'DESC')
+                    ->first();
+                if (isset($article) && $article->isPublished) {
+                    $title = '';
+                    $content = '';
+
+                    // Tentukan judul berdasarkan locale
+                    if ($locale == 'id') {
+                        $title = $article->title_indonesia ?? $article->title_english;
+                    } elseif ($locale == 'en') {
+                        $title = $article->title_english ?? $article->title_indonesia;
+                    }
+
+                    // Tentukan konten berdasarkan locale
+                    if ($locale == 'id') {
+                        $content =
+                            \Illuminate\Support\Str::limit($article->content_indonesia, 250, '...') ??
+                            \Illuminate\Support\Str::limit($article->content_english, 250, '...');
+                    } elseif ($locale == 'en') {
+                        $content =
+                            \Illuminate\Support\Str::limit($article->content_english, 250, '...') ??
+                            \Illuminate\Support\Str::limit($article->content_indonesia, 250, '...');
+                    }
                 }
             @endphp
             @if (isset($article))
@@ -55,7 +78,7 @@
                                 <h4 class="text-light" style="font-family: Campton; font-weight: bold;">
                                     {!! $title !!}
                                 </h4>
-                                <p class="text-light" style="font-family: Campton;">{{ $content }}</p>
+                                <p class="text-light" style="font-family: Campton;">{!! strip_tags(preg_replace('/<img[^>]+>/i', '', $content)) !!}</p>
                                 <a class="link-light"
                                     href="{{ route('read-news', ['locale' => app()->getLocale(), 'slug' => app()->getLocale() === 'id' ? $article->slug_ind ?? $article->slug : $article->slug]) }}"
                                     style="font-family: Campton;">
