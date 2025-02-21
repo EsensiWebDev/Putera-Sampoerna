@@ -166,12 +166,13 @@ class NewsResource extends Resource
                 Tables\Columns\TextColumn::make('title_english')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('author.name')
-                    ->searchable(),
+                    ->searchable()->sortable(),
                 Tables\Columns\IconColumn::make('isPublished')
                     ->boolean()->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(),
             ])
             ->filters([
                 //
