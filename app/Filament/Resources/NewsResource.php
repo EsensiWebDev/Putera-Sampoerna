@@ -41,7 +41,7 @@ class NewsResource extends Resource
                         ->default(Auth::id())
                         ->preload(),
 
-                    Forms\Components\DatePicker::make('created_at')
+                    Forms\Components\DateTimePicker::make('created_at')
                         ->default(now())
                         ->required()
                         ->label('Created At'),
@@ -166,6 +166,8 @@ class NewsResource extends Resource
                 Tables\Columns\TextColumn::make('title_english')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('author.name')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('isPublished')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->date()

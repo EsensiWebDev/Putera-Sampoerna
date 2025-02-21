@@ -31,6 +31,7 @@
                 })
                     ->orderBy('created_at', 'DESC')
                     ->first();
+                    
                 if (isset($article) && $article->isPublished) {
                     $title = '';
                     $content = '';
