@@ -167,10 +167,10 @@ class NewsResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('author.name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('isPublished')
-                    ->searchable(),
+                Tables\Columns\IconColumn::make('isPublished')
+                    ->boolean()->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->date()
+                    ->dateTime()
                     ->searchable(),
             ])
             ->filters([
