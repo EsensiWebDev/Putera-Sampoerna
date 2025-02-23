@@ -46,12 +46,15 @@ class DetailNews extends Component
             }
         })->first();
         $articles = Article::orderBy('created_at', 'DESC')->limit(3)->get();
-        $author = User::find($article->author_id);
+
+        if ($article->author_id != null) {
+            $author = User::find($article->author_id);
+        }
 
         return view('livewire.detail-news', [
             "article" => $article,
             "articles" => $articles,
-            "author" =>$author
+            "author" => $author
         ]);
     }
 }
