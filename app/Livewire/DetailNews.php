@@ -49,6 +49,8 @@ class DetailNews extends Component
 
         if ($article !== null) {
             $author = User::find($article->author_id);
+        }else{
+            $author = '';
         }
 
         return view('livewire.detail-news', [
