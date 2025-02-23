@@ -21,11 +21,20 @@
 
     // Set Open Graph image
     $ogImage = asset($article->thumbnail ?? '');
+    $hrefSlugId =  $article->slug_ind;
+    $hrefSlugEn = $article->slug;
+    $publishedAt = $article->created_at;
+
 @endphp
 
 @section('title', $metaTitle)
+@section('author', $author->name)
 @section('meta_description', $metaDescription)
 @section('meta_keywords', $metaKeywords)
+@section('href_slug_ind', $hrefSlugId)
+@section('href_slug_en', $hrefSlugEn)
+
+@section('published_at', $publishedAt)
 
 @section('og_title', $metaTitle)
 @section('og_description', $metaDescription)
@@ -64,7 +73,7 @@
        </div>
        
         </section>
-        <section id="content" class="px-4 py-4 mx-4">
+        <section id="content" class="px-4 py-4 mx-4 image-handles">
             {!! $content !!}
         </section>
 
@@ -136,4 +145,16 @@
             });
         });
     </script>
+    <style>
+        .image-handles img {
+            width: 100% !important;
+            /* Ensure the image takes up the full width of its container */
+            max-width: 100%;
+            /* Prevent the image from exceeding the container width */
+            height: auto;
+            /* Maintain aspect ratio, preventing stretching */
+            object-fit: contain;
+            /* Ensures the image scales within its box without being distorted */
+        }
+    </style>
 </section>

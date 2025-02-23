@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Article;
+use App\Models\User;
 use Livewire\Component;
 
 class DetailNews extends Component
@@ -17,9 +18,9 @@ class DetailNews extends Component
         // Find the article based on the slug and locale
         $this->article = Article::where(function ($query) use ($locale) {
             if ($locale == 'id') {
-                $query->where('slug_ind', $this->slug)->orWhere('slug', $this->slug);
+                $query->where('slug_ind', $this->slug);
             } else {
-                $query->where('slug', $this->slug)->orWhere('slug_ind', $this->slug);
+                $query->where('slug', $this->slug);
             }
         })->first();
 
@@ -39,15 +40,18 @@ class DetailNews extends Component
         $locale = app()->getLocale();
         $article = Article::where(function ($query) use ($locale) {
             if ($locale == 'id') {
-                $query->where('slug_ind', $this->slug)->orWhere('slug', $this->slug);
+                $query->where('slug_ind', $this->slug);
             } else {
-                $query->where('slug', $this->slug)->orWhere('slug_ind', $this->slug);
+                $query->where('slug', $this->slug);
             }
         })->first();
         $articles = Article::orderBy('created_at', 'DESC')->limit(3)->get();
+        $author = User::find($article->author_id);
+
         return view('livewire.detail-news', [
             "article" => $article,
-            "articles" => $articles
+            "articles" => $articles,
+            "author" =>$author
         ]);
     }
 }
