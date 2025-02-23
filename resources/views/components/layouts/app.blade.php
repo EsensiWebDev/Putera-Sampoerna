@@ -53,7 +53,7 @@
         integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
     <title>@yield('title', 'Putera Sampoerna Foundation')</title>
 
-    @stack('head')
+    {{-- @stack('head') --}}
     @yield('style')
 </head>
 
