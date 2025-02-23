@@ -47,7 +47,7 @@ class DetailNews extends Component
         })->first();
         $articles = Article::orderBy('created_at', 'DESC')->limit(3)->get();
 
-        if ($article->author_id != null) {
+        if ($article !== null) {
             $author = User::find($article->author_id);
         }
 
