@@ -162,8 +162,8 @@
             object-fit: contain;
             /* Ensures the image scales within its box without being distorted */
         }
-        .image-handles img .attachment__caption{
-            display: none
+        .image-handles figcaption{
+            display: none !important;
         }
     </style>
 </section>
