@@ -39,7 +39,7 @@ Route::get('/language/{locale}', function ($locale, Request $request) {
                 ($locale === 'id' && (empty($article->content_indonesia) || empty($article->title_indonesia) || empty($article->slug_ind))) ||
                 ($locale === 'en' && (empty($article->content_english) || empty($article->title_english) || $article->slug != '-'))
             ) {
-                return redirect($locale == 'id' ?  'id/news' : '/news');
+                return redirect($locale == 'id' ?  'id/media/news' : 'en/media/news');
             }
             // Determine the correct slug based on the new locale
             $newSlug = $locale === 'id' ? ($article->slug_ind ?? $article->slug) : $article->slug;
