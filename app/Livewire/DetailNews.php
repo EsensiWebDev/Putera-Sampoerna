@@ -30,8 +30,8 @@ class DetailNews extends Component
         // Redirect to /news if content or title for the current locale is empty
         if ($this->article) {
             if (
-                ($locale === 'id' && (empty($this->article->content_indonesia) || empty($this->article->title_indonesia))) ||
-                ($locale === 'en' && (empty($this->article->content_english) || empty($this->article->title_english)))
+                ($locale === 'id' && (empty($this->article->content_indonesia) || empty($this->article->title_indonesia) || empty($this->article->slug_ind))) ||
+                ($locale === 'en' && (empty($this->article->content_english) || empty($this->article->title_english) || $this->article->slug != '-'))
             ) {
                 return $this->redirect($locale == 'id' ?  'id/media/news' : 'en/media/news', navigate: true);
             }
