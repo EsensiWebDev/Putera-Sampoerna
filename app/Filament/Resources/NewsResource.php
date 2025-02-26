@@ -80,21 +80,24 @@ class NewsResource extends Resource
                         ->maxLength(255)
                         ->unique('articles', 'slug', ignoreRecord: true)
                         ->label('Slug (English)')
-                        ->afterStateUpdated(
-                            fn($state, callable $set) =>
-                            $set('link', url('/news/' . $state))
-                        ),
+                        ->afterStateUpdated(function ($state, callable $set) {
+                            // Replace spaces with hyphens
+                            $slug = str_replace(' ', '-', $state);
+                            $set('slug', $slug); // Update the slug field
+                            $set('link', url('/news/' . $slug)); // Update the link
+                        }),
                     Forms\Components\TextInput::make('slug_ind')
                         ->required()
                         ->minLength(5)
                         ->maxLength(255)
                         ->unique('articles', 'slug_ind', ignoreRecord: true)
                         ->label('Slug (Indonesia)')
-                        ->afterStateUpdated(
-                            fn($state, callable $set) =>
-                            $set('link_ind', url('/news/' . $state))
-                        ),
-
+                        ->afterStateUpdated(function ($state, callable $set) {
+                            // Replace spaces with hyphens
+                            $slug = str_replace(' ', '-', $state);
+                            $set('slug_ind', $slug); // Update the slug_ind field
+                            $set('link_ind', url('/news/' . $slug)); // Update the link_ind
+                        }),
                 ])
                     ->columns(2),
 

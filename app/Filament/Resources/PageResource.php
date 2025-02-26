@@ -35,7 +35,12 @@ class PageResource extends Resource
                 TextInput::make('title')
                     ->required(),
                 TextInput::make('slug')
-                    ->required(),
+                    ->required()
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        // Replace spaces with hyphens and trim extra spaces
+                        $slug = str_replace(' ', '-', trim($state));
+                        $set('slug', $slug); // Update the slug field with the transformed value
+                    }),
                 Select::make('lang')
                     ->label('Language')
                     ->options([
@@ -47,10 +52,12 @@ class PageResource extends Resource
                     ->required()
                     ->reactive()
                     ->afterStateUpdated(function (?string $state, Livewire $livewire, Page $page) {
-                        $livewire->dispatch('lang-changed',
-                            ['lang' => $state, 'content' => $page['content_'.$state ?? '']]);
+                        $livewire->dispatch(
+                            'lang-changed',
+                            ['lang' => $state, 'content' => $page['content_' . $state ?? '']]
+                        );
 
-//                        $set('content', $page['content_'.$state]);
+                        //                        $set('content', $page['content_'.$state]);
                     }),
                 DateTimePicker::make('published_at')
                     ->seconds(false)
@@ -86,7 +93,7 @@ class PageResource extends Resource
             ])
             ->actions([
                 ViewAction::make()
-                    ->url(fn(Page $page): string => url('/id/'.$page->slug))->openUrlInNewTab(),
+                    ->url(fn(Page $page): string => url('/id/' . $page->slug))->openUrlInNewTab(),
                 EditAction::make(),
                 DeleteAction::make()
                     ->requiresConfirmation(),
