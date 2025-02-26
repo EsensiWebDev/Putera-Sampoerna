@@ -38,7 +38,7 @@ class PageResource extends Resource
                     ->required()
                     ->afterStateUpdated(function ($state, callable $set) {
                         // Replace spaces with hyphens and trim extra spaces
-                        $slug = str_replace(' ', '-', trim($state));
+                        $slug = strtolower(preg_replace('/[^a-z0-9-]+/', '-', preg_replace('/\s+/', '-', trim($state))));
                         $set('slug', $slug); // Update the slug field with the transformed value
                     }),
                 Select::make('lang')
