@@ -1,29 +1,34 @@
 <section>
     @php
         $locale = app()->getLocale();
-
+        $title = '';
+        $content = '';
+        
         $article = \App\Models\Article::where(function ($query) use ($locale) {
             if ($locale === 'id') {
                 // For 'id' locale, ensure content_indonesia and title_indonesia are not empty
                 $query
                     ->whereNotNull('content_indonesia')
                     ->whereNotNull('title_indonesia')
+                    ->whereNotNull('slug_ind')
                     ->where('content_indonesia', '!=', '')
-                    ->where('title_indonesia', '!=', '');
+                    ->where('title_indonesia', '!=', '')
+                    ->where('isPublished', '1');
             } else {
                 // For 'en' locale, ensure content and title_english are not empty
                 $query
                     ->whereNotNull('content_english')
                     ->whereNotNull('title_english')
+                    ->whereNotNull('slug')
                     ->where('content_english', '!=', '')
-                    ->where('title_english', '!=', '');
+                    ->where('title_english', '!=', '')
+                    ->where('isPublished', '1');
             }
         })
             ->orderBy('created_at', 'DESC')
             ->first();
         if (isset($article)) {
-            $title = '';
-            $content = '';
+           
 
             // Tentukan judul berdasarkan locale
             if ($locale == 'id') {
