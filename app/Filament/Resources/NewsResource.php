@@ -82,7 +82,7 @@ class NewsResource extends Resource
                         ->label('Slug (English)')
                         ->afterStateUpdated(function ($state, callable $set) {
                             // Replace spaces with hyphens
-                            $slug = strtolower(preg_replace('/[^a-z0-9-]+/', '-', preg_replace('/\s+/', '-', trim($state))));
+                            $slug = strtolower(preg_replace('/\s+/', '-', trim($state)));
                             $set('slug', $slug); // Update the slug field
                             $set('link', url('/news/' . $slug)); // Update the link
                         }),
@@ -94,7 +94,7 @@ class NewsResource extends Resource
                         ->label('Slug (Indonesia)')
                         ->afterStateUpdated(function ($state, callable $set) {
                             // Replace spaces with hyphens
-                            $slug = strtolower(preg_replace('/[^a-z0-9-]+/', '-', preg_replace('/\s+/', '-', trim($state))));
+                            $slug = strtolower(preg_replace('/\s+/', '-', trim($state)));
                             $set('slug_ind', $slug); // Update the slug_ind field
                             $set('link_ind', url('/news/' . $slug)); // Update the link_ind
                         }),
