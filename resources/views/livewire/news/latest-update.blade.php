@@ -29,7 +29,7 @@
                         $query
                             ->whereNotNull('content_english')
                             ->whereNotNull('title_english')
-                            ->whereNotNull('slug')
+                            ->where('slug', '!=', '-')
                             ->where('content_english', '!=', '')
                             ->where('title_english', '!=', '')
                             ->where('isPublished', '1');

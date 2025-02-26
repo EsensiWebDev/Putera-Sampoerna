@@ -24,6 +24,9 @@ class DetailNews extends Component
             }
         })->first();
 
+        if (!$this->article || !$this->article->isPublished) {
+            abort(404);
+        }
         // Redirect to /news if content or title for the current locale is empty
         if ($this->article) {
             if (
@@ -58,7 +61,7 @@ class DetailNews extends Component
                 // For 'en' locale, ensure content and title_english are not empty
                 $query->whereNotNull('content_english')
                     ->whereNotNull('title_english')
-                    ->whereNotNull('slug')
+                    ->where('slug', '!=', '-')
                     ->where('content_english', '!=', '')
                     ->where('title_english', '!=', '')
                     ->where('isPublished', '1');
