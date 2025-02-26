@@ -45,7 +45,28 @@ class DetailNews extends Component
                 $query->where('slug', $this->slug);
             }
         })->first();
-        $articles = Article::orderBy('created_at', 'DESC')->limit(3)->get();
+        $articles = Article::where(function ($query) use ($locale) {
+            if ($locale == 'id') {
+                // For 'id' locale, ensure content_indonesia and title_indonesia are not empty
+                $query->whereNotNull('content_indonesia')
+                    ->whereNotNull('title_indonesia')
+                    ->whereNotNull('slug_ind')
+                    ->where('content_indonesia', '!=', '')
+                    ->where('title_indonesia', '!=', '')
+                    ->where('isPublished', '1');
+            } else {
+                // For 'en' locale, ensure content and title_english are not empty
+                $query->whereNotNull('content_english')
+                    ->whereNotNull('title_english')
+                    ->whereNotNull('slug')
+                    ->where('content_english', '!=', '')
+                    ->where('title_english', '!=', '')
+                    ->where('isPublished', '1');
+            }
+        })
+            ->orderBy('created_at', 'DESC')
+            ->limit(3)
+            ->get();
 
         if ($article !== null) {
             $author = User::find($article->author_id);
