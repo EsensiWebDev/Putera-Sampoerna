@@ -37,7 +37,7 @@ Route::get('/language/{locale}', function ($locale, Request $request) {
         if ($article) {
             if (
                 ($locale === 'id' && (empty($article->content_indonesia) || empty($article->title_indonesia) || empty($article->slug_ind))) ||
-                ($locale === 'en' && (empty($article->content_english) || empty($article->title_english) || $article->slug != '-'))
+                ($locale === 'en' && (empty($article->content_english) || empty($article->title_english) || $article->slug == '-'))
             ) {
                 return redirect($locale == 'id' ?  'id/media/news' : 'en/media/news');
             }
