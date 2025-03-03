@@ -13,6 +13,7 @@ class RedirectController extends Controller
 {
   public function redirect_english($slug, Request $request): Response|RedirectResponse
   {
+
     $page_redirect = [
       '/' => '/en',
       '/about-us' => '/en/aboutus',
@@ -62,25 +63,31 @@ class RedirectController extends Controller
     if ($requested_path === '') {
       $requested_path = '/';
     }
+
+    // ✅ Prevent infinite loop: Check if already on the correct destination
     if (array_key_exists($requested_path, $page_redirect)) {
-      return redirect($page_redirect[$requested_path], 301);
+      $destination = $page_redirect[$requested_path];
+
+      if ($requested_path !== $destination) {
+        return redirect($destination, 301);
+      }
     }
 
+    // ✅ Prevent infinite loop: Check if article is already in the correct URL
     if (in_array($slug, $articles_list_eng)) {
-      return redirect("/en/media/news/" . $slug);
+      $destination = "/en/media/news/" . $slug;
+
+      if ($requested_path !== $destination) {
+        return redirect($destination, 301);
+      }
     }
 
-    if ($slug === "en" || $slug === "id") {
-      App::setLocale($slug);
-      session(['locale' => $slug]);
-      return response()->view("pages.home");
+    if ($requested_path === '/' || $requested_path === '/en') {
+      return response()->view('homepage'); // Render homepage instead of redirecting
     }
 
-    if ($request->path() === '/' || $request->path() === 'en') {
-      return response()->view("errors.404", [], 404);
-    }
-
-    return redirect("/");
+    // Default behavior: Show 404 if no match (prevents looping)
+    abort(404);
   }
 
   public function redirect_to_news($locale, $slug, Request $request): Response|RedirectResponse
