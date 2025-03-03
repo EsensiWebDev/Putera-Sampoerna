@@ -172,66 +172,66 @@ Route::get('/adm/optimize', function () {
 
 
 //redirect
-$page_redirect = [
-    '/' => '/en',
-    '/about-us' => '/en/aboutus',
-    '/annual-report' => '/en/media/annual-reports',
-    '/board-members' => '/en/aboutus/board-member',
-    '/career' => '/en/career',
-    '/contact-us' => '/en/contact-us',
-    '/government-sector' => '/en/partners/government-sector',
-    '/how-to-involve' => '/en/partners/how-to-involve',
-    '/latest-news' => '/en/media/news',
-    '/message-from-the-founder' => '/en/aboutus/board-member',
-    '/message-from-the-management' => '/en/aboutus/board-member',
-    '/our-journey' => '/en/aboutus/our-journey',
-    '/private-sector' => '/en/partners/private-sector',
-    '/putera-sampoerna-foundation-2' => '/en/aboutus',
-    '/sampoerna-schools-system-2' => '/en/ourpillar/sampoerna-school-system',
-    '/scholarship' => '/en/ourpillar/scholarship',
-    '/school-development-outreach-2' => '/en/ourpillar/school-development-outreach',
-    '/vision-mission' => '/en/aboutus',
-    '/0' => '/en',
+// $page_redirect = [
+//     '/' => '/en',
+//     '/about-us' => '/en/aboutus',
+//     '/annual-report' => '/en/media/annual-reports',
+//     '/board-members' => '/en/aboutus/board-member',
+//     '/career' => '/en/career',
+//     '/contact-us' => '/en/contact-us',
+//     '/government-sector' => '/en/partners/government-sector',
+//     '/how-to-involve' => '/en/partners/how-to-involve',
+//     '/latest-news' => '/en/media/news',
+//     '/message-from-the-founder' => '/en/aboutus/board-member',
+//     '/message-from-the-management' => '/en/aboutus/board-member',
+//     '/our-journey' => '/en/aboutus/our-journey',
+//     '/private-sector' => '/en/partners/private-sector',
+//     '/putera-sampoerna-foundation-2' => '/en/aboutus',
+//     '/sampoerna-schools-system-2' => '/en/ourpillar/sampoerna-school-system',
+//     '/scholarship' => '/en/ourpillar/scholarship',
+//     '/school-development-outreach-2' => '/en/ourpillar/school-development-outreach',
+//     '/vision-mission' => '/en/aboutus',
+//     '/0' => '/en',
 
-    '/news/ksb-industrial-visit-memahami-pentingnya-teknologi-bersama-microsoft-indonesia' => '/id/media/news/ksb-industrial-visit-memahami-pentingnya-teknologi-bersama-microsoft-indonesia',
-    '/en/news/klarifikasi-menanggapi-artikel-di-kompasiana-tertanggal-18-mei-2014-2' => '/id/media/news/klarifikasi-menanggapi-artikel-di-kompasiana-tertanggal-18-mei-2014-2',
-    '/id/news/pengumuman-pemenang-penghargaan-karya-tulis-psf-getaway-2014' => '/id/media/news/pengumuman-pemenang-penghargaan-karya-tulis-psf-getaway-2014',
-    '/id/news/pengumuman-waspada-penipuan-rekrutmen' => '/id/media/news/pengumuman-waspada-penipuan-rekrutmen',
-    '/id/news/klarifikasi-menanggapi-artikel-di-kompasiana-tertanggal-18-mei-2014' => '/en/media/news/klarifikasi-menanggapi-artikel-di-kompasiana-tertanggal-18-mei-2014',
-    '/en/school-development-outreach-2' => '/en/ourpillar/school-development-outreach',
-    '/id/news/pengumuman-waspada-penipuan-rekrutmen' => '/id/media/news/pengumuman-waspada-penipuan-rekrutmen',
-    '/id/news/klarifikasi-pemberitaan-psf-di-media-blog-kompasiana' => '/en/media/news/klarifikasi-pemberitaan-psf-di-media-blog-kompasiana',
-    '/id/news/pengumuman-pemenang-penghargaan-karya-tulis-psf-getaway-2014' => '/id/media/news/pengumuman-pemenang-penghargaan-karya-tulis-psf-getaway-2014',
-    '/id/news/aboutus.html' => '/id',
-    '/en/news/klarifikasi-pemberitaan-psf-di-media-blog-kompasiana' => '/en/media/news/klarifikasi-pemberitaan-psf-di-media-blog-kompasiana',
-    '/en/news/klarifikasi-menanggapi-artikel-di-kompasiana-tertanggal-18-mei-2014' => '/en/media/news/klarifikasi-menanggapi-artikel-di-kompasiana-tertanggal-18-mei-2014',
-    '/index.php/en/partners' => '/en/partners',
-    '/media/news/peran-penting-parenting-di-dunia-pendidikan-anak' => '/id/media/news/peran-penting-parenting-di-dunia-pendidikan-anak',
-    '/klarifikasi-pemberitaan-psf-di-media-blog-kompasiana' => '/en/media/news/klarifikasi-pemberitaan-psf-di-media-blog-kompasiana',
-    '/sampoerna-university-industrial-engineering-students-shine-at-icasm-2023' => '/en/media/news/sampoerna-university-industrial-engineering-students-shine-at-icasm-2023',
-    '/blue-ocean-strategy-fellowship-public-lecture-with-ridwan-kamil-village-development-an-important-key-to-national-economic-growth' => '/en/media/news/blue-ocean-strategy-fellowship-public-lecture-with-ridwan-kamil-village-development-an-important-key-to-national-economic-growth',
-    '/high-quality-education-system' => '/en/media/news/high-quality-education-system',
-    '/sa-is-ready-to-open-its-second-school-in-surabaya-in-2022' => '/en/media/news/sa-is-ready-to-open-its-second-school-in-surabaya-in-2022',
-    '/the-journey-of-smpn-8-singaraja-to-become-a-digital-based-school-in-kabupaten-buleleng' => '/en/media/news/the-journey-of-smpn-8-singaraja-to-become-a-digital-based-school-in-kabupaten-buleleng',
-    '/sampoerna-academy-students-teachers-launch-self-written-e-book' => '/en/media/news/sampoerna-academy-students-teachers-launch-self-written-e-book',
-    '/pengumuman-waspada-penipuan-rekrutmen-2' => '/en/media/news/pengumuman-waspada-penipuan-rekrutmen-2',
-    '/initiating-international-collaboration-sampoerna-university-and-mapua-university-partner-for-engineering-education-and-research' => '/en/media/news/initiating-international-collaboration-sampoerna-university-and-mapua-university-partner-for-engineering-education-and-research',
-    '/sampoerna-university-participates-in-the-2nd-international-symposium-on-optimization-and-ergonomics' => '/en/media/news/sampoerna-university-participates-in-the-2nd-international-symposium-on-optimization-and-ergonomics',
-    '/industrial-engineering-study-program-sampoerna-university-industrial-advisory-board-iab-induction-and-meeting-a-collaboration-between-industrial-engineering-academia-and-industry-practitioners' => '/en/media/news/industrial-engineering-study-program-sampoerna-university-industrial-advisory-board-iab-induction-and-meeting-a-collaboration-between-industrial-engineering-academia-and-industry-practitioners',
-    '/a-portrait-of-education-in-an-oil-palm-plantation-sd-perdana-sukamara' => '/en/media/news/a-portrait-of-education-in-an-oil-palm-plantation-sd-perdana-sukamara',
-    '/zainal-abidin-the-teacher-who-sails-the-kapuas-river-to-teach-his-students' => '/en/media/news/zainal-abidin-the-teacher-who-sails-the-kapuas-river-to-teach-his-students',
-    '/sa-held-healing-earth-through-arts-hearts-workshop' => '/en/media/news/sa-held-healing-earth-through-arts-hearts-workshop',
-    '/to-improve-the-quality-of-education-pt-penjaminan-infrastruktur-indonesia-persero-targets-5-indonesian-regions-for-its-teacher-scholarship-program' => '/en/media/news/to-improve-the-quality-of-education-pt-penjaminan-infrastruktur-indonesia-persero-targets-5-indonesian-regions-for-its-teacher-scholarship-program',
-    '/management-clarification' => '/en',
-    '/media/news/sa-held-healing-earth-through-arts-hearts-workshop' => '/en/media/news/sa-held-healing-earth-through-arts-hearts-workshop',
-    '/a-new-principals-determination-to-become-an-agent-of-change' => '/en/media/news/a-new-principals-determination-to-become-an-agent-of-change',
+//     '/news/ksb-industrial-visit-memahami-pentingnya-teknologi-bersama-microsoft-indonesia' => '/id/media/news/ksb-industrial-visit-memahami-pentingnya-teknologi-bersama-microsoft-indonesia',
+//     '/en/news/klarifikasi-menanggapi-artikel-di-kompasiana-tertanggal-18-mei-2014-2' => '/id/media/news/klarifikasi-menanggapi-artikel-di-kompasiana-tertanggal-18-mei-2014-2',
+//     '/id/news/pengumuman-pemenang-penghargaan-karya-tulis-psf-getaway-2014' => '/id/media/news/pengumuman-pemenang-penghargaan-karya-tulis-psf-getaway-2014',
+//     '/id/news/pengumuman-waspada-penipuan-rekrutmen' => '/id/media/news/pengumuman-waspada-penipuan-rekrutmen',
+//     '/id/news/klarifikasi-menanggapi-artikel-di-kompasiana-tertanggal-18-mei-2014' => '/en/media/news/klarifikasi-menanggapi-artikel-di-kompasiana-tertanggal-18-mei-2014',
+//     '/en/school-development-outreach-2' => '/en/ourpillar/school-development-outreach',
+//     '/id/news/pengumuman-waspada-penipuan-rekrutmen' => '/id/media/news/pengumuman-waspada-penipuan-rekrutmen',
+//     '/id/news/klarifikasi-pemberitaan-psf-di-media-blog-kompasiana' => '/en/media/news/klarifikasi-pemberitaan-psf-di-media-blog-kompasiana',
+//     '/id/news/pengumuman-pemenang-penghargaan-karya-tulis-psf-getaway-2014' => '/id/media/news/pengumuman-pemenang-penghargaan-karya-tulis-psf-getaway-2014',
+//     '/id/news/aboutus.html' => '/id',
+//     '/en/news/klarifikasi-pemberitaan-psf-di-media-blog-kompasiana' => '/en/media/news/klarifikasi-pemberitaan-psf-di-media-blog-kompasiana',
+//     '/en/news/klarifikasi-menanggapi-artikel-di-kompasiana-tertanggal-18-mei-2014' => '/en/media/news/klarifikasi-menanggapi-artikel-di-kompasiana-tertanggal-18-mei-2014',
+//     '/index.php/en/partners' => '/en/partners',
+//     '/media/news/peran-penting-parenting-di-dunia-pendidikan-anak' => '/id/media/news/peran-penting-parenting-di-dunia-pendidikan-anak',
+//     '/klarifikasi-pemberitaan-psf-di-media-blog-kompasiana' => '/en/media/news/klarifikasi-pemberitaan-psf-di-media-blog-kompasiana',
+//     '/sampoerna-university-industrial-engineering-students-shine-at-icasm-2023' => '/en/media/news/sampoerna-university-industrial-engineering-students-shine-at-icasm-2023',
+//     '/blue-ocean-strategy-fellowship-public-lecture-with-ridwan-kamil-village-development-an-important-key-to-national-economic-growth' => '/en/media/news/blue-ocean-strategy-fellowship-public-lecture-with-ridwan-kamil-village-development-an-important-key-to-national-economic-growth',
+//     '/high-quality-education-system' => '/en/media/news/high-quality-education-system',
+//     '/sa-is-ready-to-open-its-second-school-in-surabaya-in-2022' => '/en/media/news/sa-is-ready-to-open-its-second-school-in-surabaya-in-2022',
+//     '/the-journey-of-smpn-8-singaraja-to-become-a-digital-based-school-in-kabupaten-buleleng' => '/en/media/news/the-journey-of-smpn-8-singaraja-to-become-a-digital-based-school-in-kabupaten-buleleng',
+//     '/sampoerna-academy-students-teachers-launch-self-written-e-book' => '/en/media/news/sampoerna-academy-students-teachers-launch-self-written-e-book',
+//     '/pengumuman-waspada-penipuan-rekrutmen-2' => '/en/media/news/pengumuman-waspada-penipuan-rekrutmen-2',
+//     '/initiating-international-collaboration-sampoerna-university-and-mapua-university-partner-for-engineering-education-and-research' => '/en/media/news/initiating-international-collaboration-sampoerna-university-and-mapua-university-partner-for-engineering-education-and-research',
+//     '/sampoerna-university-participates-in-the-2nd-international-symposium-on-optimization-and-ergonomics' => '/en/media/news/sampoerna-university-participates-in-the-2nd-international-symposium-on-optimization-and-ergonomics',
+//     '/industrial-engineering-study-program-sampoerna-university-industrial-advisory-board-iab-induction-and-meeting-a-collaboration-between-industrial-engineering-academia-and-industry-practitioners' => '/en/media/news/industrial-engineering-study-program-sampoerna-university-industrial-advisory-board-iab-induction-and-meeting-a-collaboration-between-industrial-engineering-academia-and-industry-practitioners',
+//     '/a-portrait-of-education-in-an-oil-palm-plantation-sd-perdana-sukamara' => '/en/media/news/a-portrait-of-education-in-an-oil-palm-plantation-sd-perdana-sukamara',
+//     '/zainal-abidin-the-teacher-who-sails-the-kapuas-river-to-teach-his-students' => '/en/media/news/zainal-abidin-the-teacher-who-sails-the-kapuas-river-to-teach-his-students',
+//     '/sa-held-healing-earth-through-arts-hearts-workshop' => '/en/media/news/sa-held-healing-earth-through-arts-hearts-workshop',
+//     '/to-improve-the-quality-of-education-pt-penjaminan-infrastruktur-indonesia-persero-targets-5-indonesian-regions-for-its-teacher-scholarship-program' => '/en/media/news/to-improve-the-quality-of-education-pt-penjaminan-infrastruktur-indonesia-persero-targets-5-indonesian-regions-for-its-teacher-scholarship-program',
+//     '/management-clarification' => '/en',
+//     '/media/news/sa-held-healing-earth-through-arts-hearts-workshop' => '/en/media/news/sa-held-healing-earth-through-arts-hearts-workshop',
+//     '/a-new-principals-determination-to-become-an-agent-of-change' => '/en/media/news/a-new-principals-determination-to-become-an-agent-of-change',
 
-];
+// ];
 
-// Loop through each redirect and define a route
-foreach ($page_redirect as $old => $new) {
-    Route::get($old, function () use ($new) {
-        // session()->put('locale', "id");
-        return redirect($new, 301);
-    });
-}
+// // Loop through each redirect and define a route
+// foreach ($page_redirect as $old => $new) {
+//     Route::get($old, function () use ($new) {
+//         // session()->put('locale', "id");
+//         return redirect($new, 301);
+//     });
+// }
