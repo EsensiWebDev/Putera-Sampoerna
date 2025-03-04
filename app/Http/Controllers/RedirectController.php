@@ -193,7 +193,7 @@ class RedirectController extends Controller
     }
 
     if (in_array($slug, $articles_list_indo)) {
-      return redirect("/{$locale}/media/news/" . $slug);
+      return redirect("/{$locale}/media/news/" . $slug, 301);
     }
 
     // Otherwise, serve the dynamic page

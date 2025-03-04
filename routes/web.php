@@ -136,7 +136,7 @@ Route::get('/language/{locale}', function ($locale, Request $request) {
 })->where('locale', implode('|', config('app.available_locales')));
 
 Route::get('/', function () {
-    return redirect('/en');
+    return redirect('/en', 301);
 });
 
 // Route::get('/{slug}', [RedirectController::class, 'redirect_to_news'])
