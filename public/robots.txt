@@ -1,8 +1,8 @@
-# This is the robots.txt file Putera Sampoerna Foundation  - Home
+# This is the robots.txt file https://www.sampoernafoundation.org
 # Last updated on: February 2025
 
 User-agent: *
 Disallow:
 
 Sitemap: https://www.sampoernafoundation.org/en/sitemap_index.xml
-Sitemap: https://www.sampoernafoundation.org/id/sitemap_index.xml
+Sitemap: https://www.sampoernafoundation.org/id/sitemap_index.xml 
