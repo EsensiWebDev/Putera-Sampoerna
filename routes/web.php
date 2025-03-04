@@ -11,6 +11,24 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Article;
 
+
+// sitemap
+Route::get('/{locale}/sitemap_index.xml', function ($locale) {
+    return response()->view('sitemap.locale-index', ['locale' => $locale])
+        ->header('Content-Type', 'text/xml');
+})->where('locale', 'en|id'); // Restrict to allowed locales
+
+$sitemaps = 'page-sitemap|our-pillar-sitemap|category-sitemap|author-sitemap|post-sitemap';
+
+Route::get("/{locale}/{sitemap}.xml", function ($locale, $sitemap) {
+    return response()
+        ->view("sitemap.$sitemap", ['locale' => $locale])
+        ->header('Content-Type', 'text/xml');
+})->where([
+    'locale' => 'en|id', // Restrict to allowed locales
+    'sitemap' => $sitemaps, // Restrict to allowed sitemap names
+]);
+
 $page_redirect = [
     '/' => '/en',
     '/about-us' => '/en/aboutus',
