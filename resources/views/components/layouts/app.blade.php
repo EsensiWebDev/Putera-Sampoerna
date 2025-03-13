@@ -9,7 +9,7 @@
     <meta name="google-site-verification" content="gTOEOzHk2oAYuPK9IgJeZSMrgJ1GzXoRQwLnCiKcBHQ"  />
     <meta name="description" content="@yield('meta_description', '')">
     <meta name="keywords" content="@yield('meta_keywords', '')">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="robots" content="noindex, nofollow">
 
     <!-- Open Graph for Social Media -->
     <meta property="og:locale" content="{{ app()->getLocale() . '_' . strtoupper(app()->getLocale()) }}">
