@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="google-site-verification" content="CVRSko63NpmBbj8wZevCow5jfiDXDWpvaNdtOvLCum8" />
+    <meta name="google-site-verification" content="gTOEOzHk2oAYuPK9IgJeZSMrgJ1GzXoRQwLnCiKcBHQ" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Putera Sampoerna Foundation {{ ' - ' . $page->title}}</title>
     <link rel="icon" type="image/webp" sizes="113x128" href="{{ asset("assets/img/Icon/Five%20Icon%20PSF.webp") }}">
