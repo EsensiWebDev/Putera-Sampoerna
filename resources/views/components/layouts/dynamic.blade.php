@@ -25,6 +25,9 @@
          p {
             font-size: 14px !important;
         }
+        h1{
+            font-size: 30px
+        }
     </style>
     @yield('style')
 
