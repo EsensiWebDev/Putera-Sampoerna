@@ -5,3 +5,6 @@
 #nav-tab-impression .active {
     opacity: 1;
 }
+p{
+    font-size: 14px !important;
+}
