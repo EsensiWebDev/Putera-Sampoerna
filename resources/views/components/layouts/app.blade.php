@@ -55,6 +55,11 @@
 
     {{-- @stack('head') --}}
     @yield('style')
+    <style>
+        p {
+            font-size: 14px !important;
+        }
+    </style>
 </head>
 
 <body>
