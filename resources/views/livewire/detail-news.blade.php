@@ -73,7 +73,7 @@
                                         : $article->content_english ?? $article->content_indonesia;
                             @endphp
                             <h1 style="font-family: Campton; color: white !important;">{!! $title !!}</h1>
-                            <p style="font-size:14px; margin-top:10px; opacity:0.7; color:white">
+                            <p style="font-size:14px; margin-top:10px; color:white; font-weight:500">
                                 {{ \Carbon\Carbon::parse($article->created_at)->format('M d, Y') }} by Admin
                             </p>
                         </div>
