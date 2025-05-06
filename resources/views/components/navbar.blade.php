@@ -77,7 +77,7 @@
                                  style="padding-top: 8px;padding-bottom: 8px;padding-left: 8px;padding-right: 8px;border-radius: 0px;">
                                 <a class="dropdown-item fw-light" aria-label="Going To School System"
                                    href="{{ url(app()->getLocale() . '/ourpillar/sampoerna-school-system') }}"
-                                >{{ __('Sampoerna School System') }}</a>
+                                >{{ __('Sampoerna Schools System') }}</a>
                                 <div class="dropdown-divider"
                                      style="margin: 8px 14px;border-width: 1px;border-color: rgb(0,0,0);"></div>
                                 <a class="dropdown-item fw-light" aria-label="Going To School Dev"
