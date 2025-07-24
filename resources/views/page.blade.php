@@ -1,4 +1,4 @@
-<x-layouts.dynamic :page="$page" :content="$content">
+<x-layouts.dynamic :page="$page" :content="$content" :footer="$footer">
     {!! $content['html'] ?? '' !!}
     @include('components.toolbox')
     {{-- Footer --}}
