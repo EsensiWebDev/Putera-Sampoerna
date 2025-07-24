@@ -22,6 +22,9 @@
         {!! $content['css'] ?? '' !!}
     </style>
     <style>
+        {!! $footer['css'] ?? '' !!}
+    </style>
+    <style>
          p {
             font-size: 14px !important;
         }
@@ -38,9 +41,8 @@
     @include('components.navbar')
 
     {{ $slot }}
-    @include('components.toolbox')
-    {{-- Footer --}}
-    @include('components.footer')
+    {{-- @include('components.toolbox')
+    @include('components.footer') --}}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('assets/js/script.min.js') }}"></script>

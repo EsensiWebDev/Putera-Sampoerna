@@ -154,6 +154,19 @@ Route::middleware([SetLocale::class])->group(function () {
                 'id' => $page->content_id,
                 default => $page->content_en
             };
+            $footerPage = Page::where('slug', 'footer')->first();
+            $decodedFooter = null;
+
+            if ($footerPage) {
+                $footerContentRaw = match ($locale) {
+                    'en' => $footerPage->content_en,
+                    'id' => $footerPage->content_id,
+                    default => $footerPage->content_id,
+                };
+
+                $decodedFooter = json_decode($footerContentRaw, true);
+                $decodedFooter['html'] = Blade::render($decodedFooter['html']);
+            }
 
             $decodedContent = json_decode($content, true);
             $renderedHtml = Blade::render($decodedContent['html']);
@@ -162,6 +175,7 @@ Route::middleware([SetLocale::class])->group(function () {
             return response()->view('page', [
                 'page' => $page,
                 'content' => $decodedContent,
+                'footer' => $decodedFooter
             ]);
         })->name('home');
 
@@ -254,4 +268,3 @@ Route::get('/adm/optimize', function () {
 
 
 //redirect
-
