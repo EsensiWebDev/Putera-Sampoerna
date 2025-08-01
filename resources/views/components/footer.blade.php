@@ -84,11 +84,11 @@
 
                             <a class="fs-6 fw-light link-light mb-2"
                                href="{{ url(app()->getLocale() . '/ourpillar/sampoerna-school-system') }}"
-                               style="font-family: Campton;">{{ __("Sampoerna Schools System") }}</a>
+                               style="font-family: Campton;">Sampoerna Schools System</a>
                             <a
                                 class="fs-6 fw-light link-light mb-2"
                                 href="{{ url(app()->getLocale() . '/ourpillar/school-development-outreach') }}"
-                                style="font-family: Campton;">{{ __("School Development Outreach") }}</a>
+                                style="font-family: Campton;">School Development Outreach</a>
                             <a
                                 class="fs-6 fw-light link-light mb-2"
                                 href="{{ url(app()->getLocale() . '/ourpillar/scholarship') }}"
