@@ -19,6 +19,9 @@
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
         integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
     <style>
+        {!! $header['css'] ?? '' !!}
+    </style>
+    <style>
         {!! $content['css'] ?? '' !!}
     </style>
     <style>
@@ -38,7 +41,7 @@
 
 <body>
     {{-- Navbar --}}
-    @include('components.navbar')
+    {{-- @include('components.navbar') --}}
 
     {{ $slot }}
     {{-- @include('components.toolbox')

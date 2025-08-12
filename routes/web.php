@@ -154,6 +154,20 @@ Route::middleware([SetLocale::class])->group(function () {
                 'id' => $page->content_id,
                 default => $page->content_en
             };
+            $headerPage = Page::where('slug', 'header')->first();
+            $decodedHeader = null;
+
+            if ($headerPage) {
+                $headerContentRaw = match ($locale) {
+                    'en' => $headerPage->content_en,
+                    'id' => $headerPage->content_id,
+                    default => $headerPage->content_id,
+                };
+
+                $decodedHeader = json_decode($headerContentRaw, true);
+                $decodedHeader['html'] = Blade::render($decodedHeader['html']);
+            }
+
             $footerPage = Page::where('slug', 'footer')->first();
             $decodedFooter = null;
 
@@ -175,6 +189,7 @@ Route::middleware([SetLocale::class])->group(function () {
             return response()->view('page', [
                 'page' => $page,
                 'content' => $decodedContent,
+                'header' => $decodedHeader,
                 'footer' => $decodedFooter
             ]);
         })->name('home');
