@@ -82,7 +82,7 @@
             </div>
 
         </section>
-        <div class="d-flex justify-content-between p-5">
+        <div class="d-flex justify-content-between p-5" style="gap: 15px">
             <section id="content" class=" image-handles">
                 {!! $content !!}
             </section>
