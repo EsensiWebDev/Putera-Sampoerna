@@ -28,7 +28,7 @@
     }
 @endphp
 
-@if($article !== null)
+@if ($article !== null)
     @section('title', $metaTitle)
     @section('author', isset($author) ? $author->name : 'Default Author')
     @section('meta_description', $metaDescription)
@@ -82,65 +82,64 @@
             </div>
 
         </section>
-        <section id="content" class="px-4 py-4 mx-4 image-handles">
-            {!! $content !!}
-        </section>
-
-        <section style="margin-top: 200px;margin-bottom: 200px;">
-            <div class="container d-sm-block d-md-none">
-                @section('style')
-                    <link rel="stylesheet" href="{{ asset('assets/slick-1.8.1/slick/slick.css') }}">
-                    <link rel="stylesheet" href="{{ asset('assets/slick-1.8.1/slick/slick-theme.css') }}">
-                @endsection
-
-                <div class="slick-slider d-flex flex-row" style="margin-bottom: 72px;">
+        <div class="d-flex justify-content-between flex-wrap p-5">
+            <section id="content" class=" image-handles">
+                {!! $content !!}
+            </section>
+            <div class="flex-article2">
+                <div class="d-flex flex-column">
                     @if (isset($articles) && $articles->count() > 0)
+                        <h3 style="color:#8a8a8a">Recent Post</h3>
                         @foreach ($articles as $article)
-                            <a href="{{ route('read-news', ['locale' => app()->getLocale(), 'slug' => app()->getLocale() === 'id' ? $article->slug_ind ?? $article->slug : $article->slug]) }}"
-                                style="color: black;">
-                                <div class="slick-item" wire:key="{{ $loop->iteration }}">
-                                    <div>
-                                        <img class="img-fluid" style="margin-bottom: 36px; height: 334px;"
-                                            src="{{ str_contains($article->thumbnail, '/uploads') ? asset($article->thumbnail) : asset('storage/' . $article->thumbnail) }}"
-                                            alt="Article Thumbnail">
+                            <div style="background-color: #292F78; border-radius:10px; margin-top:20px; width:300px"
+                                wire:key="{{ $loop->iteration }}">
+                                <a href="{{ app()->getLocale() === 'id'
+                                    ? url('/id/media/news/' . ($article->slug_ind ?? $article->slug))
+                                    : route('read-news', [
+                                        'locale' => app()->getLocale(),
+                                        'slug' => app()->getLocale() === 'id' ? $article->slug_ind ?? $article->slug : $article->slug,
+                                    ]) }}"
+                                    style="text-decoration:none; cursor: pointer; color: white">
+                                    <img class="img-fluid"
+                                        style=" height: 204px; width: 100%; object-fit: cover; border-radius:10px;"
+                                        src="{{ str_contains($article->thumbnail, '/uploads') ? asset($article->thumbnail) : asset('storage/' . $article->thumbnail) }}"
+                                        alt="" />
+                                    <div class="recent" style="padding:20px; color:white !important">
+                                        @if ($article->category_name)
+                                            <p
+                                                style="width: fit-content; color:white; background-color:#00A7CF; border-radius:50px; padding:3px; padding-left:10px; padding-right:10px; margin-bottom:10px">
+                                                {!! $article->category_name !!}
+                                            </p>
+                                        @endif
+                                        <p class="text-white">
+                                            {{ \Carbon\Carbon::parse($article->created_at)->format('M d, Y') }}
+                                        </p>
+                                        <br>
+                                        <a style=" text-decoration:none; color: white; font-weight:bold; "
+                                            href="{{ app()->getLocale() === 'id'
+                                                ? url('/id/media/news/' . ($article->slug_ind ?? $article->slug))
+                                                : route('read-news', [
+                                                    'locale' => app()->getLocale(),
+                                                    'slug' => app()->getLocale() === 'id' ? $article->slug_ind ?? $article->slug : $article->slug,
+                                                ]) }}">
+                                            {{ app()->getLocale() == 'id' ? $article->title_indonesia : $article->title_english }}
+                                        </a>
+
+                                        <p class="desc " style=" margin-top:5px ">
+                                            {!! app()->getLocale() == 'id'
+                                                ? \Illuminate\Support\Str::limit($article->content_indonesia, 60, '...')
+                                                : \Illuminate\Support\Str::limit($article->content_english, 60, '...') !!}
+                                        </p>
                                     </div>
-                                    <p class="fw-light" style="font-family: Campton; color: #8F90A6;">
-                                        {{ \Carbon\Carbon::parse($article->created_at)->format('F j, Y') }}
-                                    </p>
-                                    <h1 class="fs-4 fw-semibold"
-                                        style="color: var(--bs-black); font-family: Campton; margin-top: 8px; margin-bottom: 8px;">
-                                        {!! app()->getLocale() == 'id' ? $article->title_indonesia : $article->title_english !!}
-                                    </h1>
-                                    <p class="fs-5 fw-light" style="color: var(--bs-black); font-family: Campton;">
-                                        {!! app()->getLocale() == 'id'
-                                            ? \Illuminate\Support\Str::limit($article->content_indonesia, 60, '...')
-                                            : \Illuminate\Support\Str::limit($article->content_english, 60, '...') !!}
-                                    </p>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
                         @endforeach
                     @endif
                 </div>
-
-                @section('script')
-                    <script src="{{ asset('assets/slick-1.8.1/slick/slick.min.js') }}"></script>
-                    <script>
-                        $(document).ready(function() {
-                            $('.slick-slider').slick({
-                                dots: true, // untuk menampilkan dot navigasi
-                                infinite: true, // untuk mengatur infinite scrolling
-                                speed: 500, // kecepatan transisi
-                                slidesToShow: 1, // jumlah slide yang tampil per halaman
-                                slidesToScroll: 1, // jumlah slide yang digulirkan per klik
-                                adaptiveHeight: true, // untuk menyesuaikan tinggi slider dengan konten
-                            });
-                        });
-                    </script>
-                @endsection
             </div>
+        </div>
 
 
-        </section>
 
 
 
@@ -155,6 +154,10 @@
         });
     </script>
     <style>
+        .recent p {
+            color: white !important;
+        }
+
         .image-handles img {
             width: 100% !important;
             /* Ensure the image takes up the full width of its container */
@@ -165,7 +168,8 @@
             object-fit: contain;
             /* Ensures the image scales within its box without being distorted */
         }
-        .image-handles figcaption{
+
+        .image-handles figcaption {
             display: none !important;
         }
     </style>

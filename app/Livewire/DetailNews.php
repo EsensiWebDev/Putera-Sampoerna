@@ -52,6 +52,7 @@ class DetailNews extends Component
             if ($locale == 'id') {
                 // For 'id' locale, ensure content_indonesia and title_indonesia are not empty
                 $query->whereNotNull('content_indonesia')
+                    ->where('slug_ind', '!=', $this->slug)
                     ->whereNotNull('title_indonesia')
                     ->whereNotNull('slug_ind')
                     ->where('content_indonesia', '!=', '')
@@ -61,6 +62,7 @@ class DetailNews extends Component
                 // For 'en' locale, ensure content and title_english are not empty
                 $query->whereNotNull('content_english')
                     ->whereNotNull('title_english')
+                    ->where('slug', '!=', $this->slug)
                     ->where('slug', '!=', '-')
                     ->where('content_english', '!=', '')
                     ->where('title_english', '!=', '')
